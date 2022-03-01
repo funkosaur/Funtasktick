@@ -1,0 +1,7 @@
+@import './fonts/Niveau.otf';
+@import "./reset.css";
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
