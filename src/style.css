@@ -1,7 +1,42 @@
-@import './fonts/Niveau.otf';
+@import "./fonts/Niveau.otf";
 @import "./reset.css";
 
 * {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: Niveau;
+  src: url("./fonts/Niveau.otf") format("opentype");
+}
+
+:root {
+  --darkRed: #ab0000;
+  --lightRed: #ff5c4a;
+  --red: #ff5c4a;
+  --lightBlue: #1ae6e0;
+  --blue: #00b3ae;
+  --main-font: "Niveau";
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 63em) 1fr;
+  grid-template-rows: 20% 80%;
+}
+
+#myHeader {
+  grid-row: 1/2;
+  grid-column: 1/4;
+  height: 20%;
+  display: flex;
+}
+
+#container {
+  height: 80%;
+  display: grid;
+
+}
