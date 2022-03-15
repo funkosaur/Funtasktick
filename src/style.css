@@ -1,4 +1,4 @@
-@import "./fonts/Niveau.otf";
+
 @import "./reset.css";
 
 * {
@@ -17,26 +17,80 @@
   --red: #ff5c4a;
   --lightBlue: #1ae6e0;
   --blue: #00b3ae;
+  --white: #fad9d1;
   --main-font: "Niveau";
 }
 
 body {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr minmax(auto, 63em) 1fr;
-  grid-template-rows: 20% 80%;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 10% 90%;
 }
 
 #myHeader {
   grid-row: 1/2;
-  grid-column: 1/4;
-  height: 20%;
+  grid-column: 1/3;
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--darkRed);
 }
 
-#container {
-  height: 80%;
-  display: grid;
+#leftNavigation {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  background-color: #de0000;
+}
+
+#content {
+  grid-row:2/3;
+  grid-column: 2/3;
+}
+
+#logoDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Niveau;
+  font-size: 29px;
+  font-weight: bold;
+}
+
+#searchDiv {
+  width: 25%;
+}
+
+#searchDiv input{
+  width: 90%;
+  height: 35px;
+  background-color: var(--white);
+  border: none;
+  border-radius: 2px;
+}
+
+.fa-magnifying-glass{
+  height: 100%;
+}
+
+#addNewProject {
+  background: var(--white);
+  border-radius: 2px;
+  color: black;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
 
 }
