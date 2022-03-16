@@ -12,11 +12,12 @@
 }
 
 :root {
-  --darkRed: #ab0000;
+  --darkRed: #5f5f5f;
+  --lightReddish: black;
   --lightRed: #ff5c4a;
-  --red: #ff5c4a;
-  --lightBlue: #1ae6e0;
-  --blue: #00b3ae;
+  --red: #ab0000;
+  --lightGray: #e6e6e6;
+  --gray: #d7d7d7;
   --white: #fad9d1;
   --main-font: "Niveau";
 }
@@ -27,6 +28,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 10% 90%;
+  font-family: Niveau;
 }
 
 #myHeader {
@@ -35,13 +37,14 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--darkRed);
+  background-color: var(--red);
+  color: black;
 }
 
 #leftNavigation {
   grid-row: 2/3;
   grid-column: 1/2;
-  background-color: #de0000;
+  background-color: var(--gray);
 }
 
 #content {
@@ -60,28 +63,44 @@ body {
 
 #searchDiv {
   width: 25%;
+  font-family: Niveau;
 }
 
 #searchDiv input{
   width: 90%;
   height: 35px;
-  background-color: var(--white);
+  background-color: var(--lightReddish);
   border: none;
   border-radius: 2px;
+  text-indent: 10px;
 }
 
-.fa-magnifying-glass{
-  height: 100%;
+#searchDiv input:hover {
+  background-color: var(--lightRed)
 }
+
+::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+i{
+  margin-left: 10px;
+}
+
+#leftNavigation i {
+  margin-right: 10px;
+}
+
 
 #addNewProject {
-  background: var(--white);
+  background: var(--lightReddish);
   border-radius: 2px;
-  color: black;
+  color: white;
   cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-family: Niveau;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 24px;
   opacity: 1;
   outline: 0 solid transparent;
@@ -92,5 +111,37 @@ body {
   width: fit-content;
   word-break: break-word;
   border: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
+#addNewProject:hover{
+  background-color: var(--lightRed)
+}
+
+
+#content {
+  background-color: var(--lightGray);
+}
+
+.navigationPanel {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--lightReddish);
+  font-weight: bold;
+  cursor: pointer;
+  border-top: 1px black solid;
+  color: white;
+}
+
+.navigationPanel:hover {
+   background-color: var(--lightRed)
+}
+
+#projectsDiv {
+  justify-content: space-between;
 }
