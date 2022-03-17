@@ -1,5 +1,5 @@
-
 @import "./reset.css";
+@import "./formPage.css";
 
 * {
   box-sizing: border-box;
@@ -48,7 +48,7 @@ body {
 }
 
 #content {
-  grid-row:2/3;
+  grid-row: 2/3;
   grid-column: 2/3;
 }
 
@@ -66,7 +66,7 @@ body {
   font-family: Niveau;
 }
 
-#searchDiv input{
+#searchDiv input {
   width: 90%;
   height: 35px;
   background-color: var(--lightReddish);
@@ -76,7 +76,7 @@ body {
 }
 
 #searchDiv input:hover {
-  background-color: var(--lightRed)
+  background-color: var(--lightRed);
 }
 
 ::placeholder {
@@ -84,14 +84,13 @@ body {
   opacity: 1; /* Firefox */
 }
 
-i{
+i {
   margin-left: 10px;
 }
 
 #leftNavigation i {
   margin-right: 10px;
 }
-
 
 #addNewProject {
   background: var(--lightReddish);
@@ -116,10 +115,9 @@ i{
   align-items: center;
 }
 
-#addNewProject:hover{
-  background-color: var(--lightRed)
+#addNewProject:hover {
+  background-color: var(--lightRed);
 }
-
 
 #content {
   background-color: var(--lightGray);
@@ -139,7 +137,7 @@ i{
 }
 
 .navigationPanel:hover {
-   background-color: var(--lightRed)
+  background-color: var(--lightRed);
 }
 
 #projectsDiv {
