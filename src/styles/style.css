@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: Niveau;
-  src: url("./fonts/Niveau.otf") format("opentype");
+  src: url("../assets/fonts/Niveau.otf") format("opentype");
 }
 
 :root {

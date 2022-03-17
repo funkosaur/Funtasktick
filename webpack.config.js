@@ -14,6 +14,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Funtasktick",
       template: "./src/index.html",
+      favicon: "./src/assets/icon/favicon.ico",
     }),
   ],
   output: {
