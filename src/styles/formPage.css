@@ -2,11 +2,17 @@
   display: grid;
   grid-template-columns: 0.5fr minmax(auto, 2fr) 0.5fr;
   grid-template-rows: 1fr 4fr;
+  row-gap: 5em;
+  font-weight: bold;
 }
 
 #formTitle {
   grid-row: 1/2;
   grid-column: 1/4;
+  margin-top: 2em;
+  margin-left: 2em;
+  font-size: 1.8em;
+  
 }
 
 #formContent {
@@ -14,4 +20,46 @@
   grid-column: 2/3;
   display: flex;
   flex-direction: column;
+  padding: 0px 200px 0px 0px;
+}
+
+#projectPriority label{
+  margin-left: 10px;
+}
+
+.formLabels {
+  margin: 10px 0px 10px 0px;
+}
+
+textarea {
+  resize: none;
+}
+
+#submitButton {
+  background: var(--lightReddish);
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  font-family: Niveau;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 25px;
+  align-self: flex-end;
+}
+
+#submitButton:hover {
+  background-color: var(--lightRed);
 }
