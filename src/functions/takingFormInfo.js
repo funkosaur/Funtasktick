@@ -1,4 +1,5 @@
 const submitButton = document.querySelector("#submitButton");
+const form = document.querySelector("#formContent")
 const projectTitle = document.querySelector("#projectTitle");
 const projectDescription = document.querySelector("#projectDescription");
 const projectDueDate = document.querySelector("#projectDueDate");
@@ -18,6 +19,5 @@ function processFormInfo(event) {
     console.log(projects)
 }
 
-submitButton.addEventListener("submit", processFormInfo);
+form.addEventListener("submit", processFormInfo);
 
-export default processFormInfo
