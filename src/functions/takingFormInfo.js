@@ -1,8 +1,11 @@
-const projectFactory = (title, description, dueDate, priority, notes) => {
-  return { title, description, dueDate, priority, notes };
-};
+import events from "./pubsub.js"
 
 const projects = [];
+
+const takeFormInfo = () => {
+  const projectFactory = (title, description, dueDate, priority, notes) => {
+  return { title, description, dueDate, priority, notes };
+};
 
 function processFormInfo(event) {
   const projectTitle = document.querySelector("#projectTitle");
@@ -22,8 +25,15 @@ function processFormInfo(event) {
   );
 
   projects.push(newProject);
+  events.emit("projectCreated", projects);
   this.reset();
   console.log(projects);
 }
 
-export { processFormInfo, projects };
+const form = document.querySelector("#formContent");
+form.addEventListener("submit", processFormInfo);
+
+};
+
+export { takeFormInfo, projects } ;
+
