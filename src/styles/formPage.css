@@ -1,8 +1,8 @@
 #formLayout {
   display: grid;
-  grid-template-columns: 0.5fr minmax(auto, 2fr) 0.5fr;
+  grid-template-columns: 0.35fr minmax(auto, 40em) 0.5fr;
   grid-template-rows: 1fr 4fr;
-  row-gap: 5em;
+  row-gap: 4em;
   font-weight: bold;
 }
 
@@ -20,7 +20,7 @@
   grid-column: 2/3;
   display: flex;
   flex-direction: column;
-  padding: 0px 200px 0px 0px;
+  
 }
 
 #projectPriority label{

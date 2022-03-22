@@ -143,3 +143,8 @@ i {
 #projectsDiv {
   justify-content: space-between;
 }
+
+#projectNav {
+  display: flex;
+  flex-direction: column;
+}

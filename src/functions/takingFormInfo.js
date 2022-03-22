@@ -17,7 +17,7 @@ function processFormInfo(event) {
   event.preventDefault();
 
   const newProject = projectFactory(
-    projectTitle.value,
+    projectTitle.value.toUpperCase(),
     projectDescription.value,
     projectDueDate.value,
     projectPriority.value,
