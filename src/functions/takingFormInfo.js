@@ -1,4 +1,5 @@
-import events from "./pubsub.js"
+import events from "./pubsub.js";
+import checkFormRequirements from "./formRequirements.js"
 
 const projects = [];
 
@@ -15,6 +16,7 @@ function processFormInfo(event) {
   const projectNotes = document.querySelector("#projectNotes");
 
   event.preventDefault();
+  if(checkFormRequirements()) return;
 
   const newProject = projectFactory(
     projectTitle.value.toUpperCase(),

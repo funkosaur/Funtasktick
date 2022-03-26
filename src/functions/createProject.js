@@ -14,8 +14,8 @@ function createProjectElement() {
     const projectsTabs = document.createElement("div");
     projectsTabs.classList.add("navigationPanel");
     projectsTabs.setAttribute("data-index", `${index}`);
-    let projectDueDate = format(parseISO(project.dueDate), `dd/MMMM`);
-    projectsTabs.textContent = `${project.title} Due: ${projectDueDate}`;
+    let projectDue = format(parseISO(project.dueDate), `dd/MMMM`);
+    projectsTabs.textContent = `${project.title} Due: ${projectDue}`;
     projectNav.appendChild(projectsTabs);
   });
 }
