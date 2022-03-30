@@ -12,7 +12,7 @@ function createProjectElement() {
 
   projects.forEach((project, index) => {
     const projectsTabs = document.createElement("div");
-    projectsTabs.classList.add("navigationPanel");
+    projectsTabs.classList.add("navigationPanelProjects");
     projectsTabs.setAttribute("data-index", `${index}`);
     let projectDue = format(parseISO(project.dueDate), `dd/MMMM`);
     projectsTabs.textContent = `${project.title} Due: ${projectDue}`;
