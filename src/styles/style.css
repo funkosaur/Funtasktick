@@ -73,6 +73,7 @@ body {
   border: none;
   border-radius: 2px;
   text-indent: 10px;
+  color: white;
 }
 
 #searchDiv input:hover {
@@ -132,7 +133,6 @@ i {
   background-color: var(--lightReddish);
   font-weight: bold;
   cursor: pointer;
-  border-top: 1px black solid;
   color: white;
 }
 
