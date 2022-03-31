@@ -1,0 +1,7 @@
+#tasksLayout {
+    display: grid;
+    grid-template-columns: 0.35fr minmax(auto, 30em) minmax(auto, 10em) 0.5fr;
+    grid-template-rows: 1fr 4fr;
+    row-gap: 4em;
+    font-weight: bold;
+  }

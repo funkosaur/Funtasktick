@@ -1,17 +1,19 @@
 import events from "./pubsub.js";
 import { projects } from "./takingFormInfo.js";
+import tasksPage from "../pages/tasksPage.js";
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 
 const addProjectToNavlist = () => {
 
+const projectNav = document.querySelector("#projectNav");
+
 function createProjectElement() {
-  const projectNav = document.querySelector("#projectNav")
   
   while ( projectNav.firstChild ) projectNav.removeChild( projectNav.firstChild );
 
   projects.forEach((project, index) => {
-    const projectsTabs = document.createElement("div");
+    const projectsTabs = document.createElement("li");
     projectsTabs.classList.add("navigationPanelProjects");
     projectsTabs.setAttribute("data-index", `${index}`);
     let projectDue = format(parseISO(project.dueDate), `dd/MMMM`);
@@ -19,6 +21,8 @@ function createProjectElement() {
     projectNav.appendChild(projectsTabs);
   });
 }
+
+projectNav.addEventListener("click", tasksPage);
 
 events.on("projectCreated", createProjectElement);
 
