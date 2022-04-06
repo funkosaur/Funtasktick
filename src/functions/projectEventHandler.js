@@ -1,6 +1,7 @@
 import tasksPage from "../pages/tasksPage";
+import {projects} from "../functions/takingFormInfo.js";
 
-function projectEventHandler() {
+function projectEventHandler(e) {
   const contentDiv = document.querySelector("#content");
 
   while (contentDiv.firstChild) contentDiv.removeChild(contentDiv.firstChild);
@@ -12,3 +13,5 @@ function projectEventHandler() {
 
   tasksPage(project)
 }
+
+export default projectEventHandler;

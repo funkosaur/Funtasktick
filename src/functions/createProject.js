@@ -1,6 +1,6 @@
 import events from "./pubsub.js";
 import { projects } from "./takingFormInfo.js";
-import tasksPage from "../pages/tasksPage.js";
+import projectEventHandler from "./projectEventHandler.js";
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 
@@ -22,7 +22,7 @@ function createProjectElement() {
   });
 }
 
-projectNav.addEventListener("click", tasksPage);
+projectNav.addEventListener("click", projectEventHandler);
 
 events.on("projectCreated", createProjectElement);
 
