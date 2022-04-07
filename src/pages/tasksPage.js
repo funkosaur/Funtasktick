@@ -2,6 +2,7 @@ import {projects} from "../functions/takingFormInfo.js";
 import showTaskInputs from "../functions/tasksPageEventListeners.js";
 
 function tasksPage(project) {
+    console.log(project)
     const contentDiv = document.querySelector("#content");
     
     const tasksLayout = document.createElement("div");

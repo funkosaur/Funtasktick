@@ -1,12 +1,21 @@
 import {projects} from "./takingFormInfo.js";
 import tasksPage from "../pages/tasksPage.js";
 
+const taskFactory = (task, dueDate) => {
+    return { task, dueDate};
+  };
+
 function showTaskInputs(currentProject) {
     addTaskButton.style.display = "none";
 
         const newTaskInput = document.createElement("input");
         newTaskInput.setAttribute("id", "newTaskInput");
         tasksButton.appendChild(newTaskInput);
+        
+        const newTaskDate = document.createElement("input");
+        newTaskDate.type = "date";
+        newTaskDate.setAttribute("id", "newTaskDate");
+        tasksButton.appendChild(newTaskDate);
 
         const taskButtonsDiv = document.createElement("div");
         taskButtonsDiv.setAttribute("id", "taskButtonsDiv");
@@ -20,17 +29,19 @@ function showTaskInputs(currentProject) {
         
 
         createTaskButton.addEventListener("click", () => {
-            this.tasks.push(newTaskInput.value);
+            const newTask = taskFactory(newTaskInput.value, newTaskDate.value);
+            this.tasks.push(newTask);
 
             while ( tasksList.firstChild ) tasksList.removeChild( tasksList.firstChild );
 
-            this.tasks.forEach((task, index) => {
+            this.tasks.forEach((tasks) => {
                 const allTasks = document.createElement("li");
                 allTasks.classList.add("tasks");
-                allTasks.textContent = task;
+                allTasks.textContent = tasks.task;
                 tasksList.appendChild(allTasks);
             });
             newTaskInput.style.display = "none";
+            newTaskDate.style.display = "none";
             taskButtonsDiv.style.display = "none";
             addTaskButton.style.display = "flex";
         });
@@ -42,6 +53,7 @@ function showTaskInputs(currentProject) {
 
         cancelTaskButton.addEventListener("click", () => {
             newTaskInput.style.display = "none";
+            newTaskDate.style.display = "none";
             taskButtonsDiv.style.display = "none";
             addTaskButton.style.display = "flex";
         });

@@ -58,8 +58,13 @@
 
 
 #newTaskInput {
-  width: 100%;
+  width: 76%;
   padding: 8px 18px;
+}
+
+#newTaskDate {
+  width: 24%;
+  padding: 5.5px;
 }
 
 #tasksButton {
