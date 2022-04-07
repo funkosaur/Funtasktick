@@ -12,13 +12,13 @@ function projectEventHandler(e) {
   let project = projects[dataIndex];
 
   tasksPage(project);
-  
+
   const tasksList = document.querySelector("#tasksList");
 
-  project.tasks.forEach((task) => {
+  project.tasks.forEach((currentTasks) => {
     const allTasks = document.createElement("li");
     allTasks.classList.add("tasks");
-    allTasks.textContent = task;
+    allTasks.textContent = currentTasks.task;
     tasksList.appendChild(allTasks);
   });
 }

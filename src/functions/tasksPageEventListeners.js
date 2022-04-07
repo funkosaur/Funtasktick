@@ -34,10 +34,10 @@ function showTaskInputs(currentProject) {
 
             while ( tasksList.firstChild ) tasksList.removeChild( tasksList.firstChild );
 
-            this.tasks.forEach((tasks) => {
+            this.tasks.forEach((currentTasks) => {
                 const allTasks = document.createElement("li");
                 allTasks.classList.add("tasks");
-                allTasks.textContent = tasks.task;
+                allTasks.textContent = currentTasks.task;
                 tasksList.appendChild(allTasks);
             });
             newTaskInput.style.display = "none";
