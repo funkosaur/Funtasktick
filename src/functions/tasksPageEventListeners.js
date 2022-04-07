@@ -39,6 +39,7 @@ function showTaskInputs(currentProject) {
                 allTasks.classList.add("tasks");
                 allTasks.textContent = currentTasks.task;
                 tasksList.appendChild(allTasks);
+                // add checkboxes and dates
             });
             newTaskInput.style.display = "none";
             newTaskDate.style.display = "none";
