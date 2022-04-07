@@ -29,7 +29,7 @@ function showTaskInputs(currentProject) {
                 allTasks.classList.add("tasks");
                 allTasks.textContent = task;
                 tasksList.appendChild(allTasks);
-            })
+            });
             newTaskInput.style.display = "none";
             taskButtonsDiv.style.display = "none";
             addTaskButton.style.display = "flex";

@@ -22,6 +22,7 @@ function createProjectElement() {
   });
 }
 
+
 projectNav.addEventListener("click", projectEventHandler);
 
 events.on("projectCreated", createProjectElement);
