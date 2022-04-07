@@ -1,7 +1,124 @@
 #tasksLayout {
-    display: grid;
-    grid-template-columns: 0.35fr minmax(auto, 30em) minmax(auto, 10em) 0.5fr;
-    grid-template-rows: 1fr 4fr;
-    row-gap: 4em;
-    font-weight: bold;
-  }
+  display: grid;
+  grid-template-columns: 0.5fr minmax(auto, 40em) 0.2fr minmax(auto, 20em) 0.5fr;
+  grid-template-rows: 1fr 4fr;
+  row-gap: 4em;
+  font-weight: bold;
+}
+
+#projectInfo {
+  grid-row: 1/2;
+  grid-column: 1/4;
+  margin-top: 2em;
+  margin-left: 2em;
+  font-size: 1.8em;
+}
+
+#tasksDiv {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+#addTaskButton {
+  display: flex;
+}
+
+#taskButtonsDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.taskButtons {
+  background: var(--lightReddish);
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  font-family: Niveau;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  word-break: break-word;
+  border: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+  width: 48%;
+}
+
+
+#newTaskInput {
+  width: 100%;
+  padding: 8px 18px;
+}
+
+#tasksButton {
+  margin-bottom: 15px;
+}
+
+.fa-plus {
+  margin-right: 15px;
+}
+
+.tasks {
+  padding: 13px;
+  font-size: 1.3em;
+  border-radius: 5px;
+
+}
+
+.tasks:hover {
+  background-color: var(--gray);
+  cursor: pointer;
+}
+
+#notesDiv {
+  grid-row: 1/3;
+  grid-column: 4/5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.2em;
+  margin-top: 150px;
+}
+
+#notesArea{
+  background-color: var(--gray);
+  border-radius: 5px;
+  text-indent: 2px;
+}
+
+#noteSaveButton {
+  background: var(--lightReddish);
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  font-family: Niveau;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+}

@@ -4,8 +4,8 @@ import checkFormRequirements from "./formRequirements.js"
 const projects = [];
 
 const takeFormInfo = () => {
-  const projectFactory = (title, description, dueDate, priority, notes) => {
-  return { title, description, dueDate, priority, notes };
+  const projectFactory = (title, description, dueDate, priority, notes, tasks) => {
+  return { title, description, dueDate, priority, notes, tasks};
 };
 
 function processFormInfo(event) {
@@ -23,7 +23,8 @@ function processFormInfo(event) {
     projectDescription.value,
     projectDueDate.value,
     projectPriority.value,
-    projectNotes.value
+    projectNotes.value,
+    []
   );
 
   projects.push(newProject);

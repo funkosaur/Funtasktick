@@ -72,6 +72,7 @@ const formPage = () => {
   const projectNotes = document.createElement("textarea");
   projectNotes.setAttribute("id", "projectNotes");
   projectNotes.rows = 7;
+  projectNotes.maxLength = 200;
   formContent.appendChild(projectNotes);
 
   const submitButton = document.createElement("input");
