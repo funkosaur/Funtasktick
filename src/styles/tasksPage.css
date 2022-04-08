@@ -79,7 +79,18 @@
   padding: 13px;
   font-size: 1.3em;
   border-radius: 5px;
+}
 
+#allTasks{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#dateAndDelete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tasks:hover {
@@ -127,3 +138,79 @@
   align-items: center;
   margin-top: 5px;
 }
+
+#checkboxAndTextDiv {
+  display: flex;
+}
+
+.outer {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #a4a4a4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 10px;
+}
+
+.outer {
+  cursor: pointer
+}
+
+.inner {
+  width:100%;
+  height: 100%;
+  cursor: pointer
+}
+
+.inner:after {
+  content: '';
+  position: absolute;
+  position: absolute;
+  width: 12px;
+  height: 5px;
+  background: transparent;
+  top: 4px;
+  left: 3px;
+  border: 3px solid transparent;
+  border-top: none;
+  border-right: none;
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.outer input[type=checkbox] {
+  display: none
+}
+.outer input[type=checkbox]:checked + .inner:after{
+	border: 3px solid #000;
+  border-top: none;
+  border-right: none;
+}
+
+#deleteButton {
+  background: var(--lightReddish);
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  font-family: Niveau;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 5px 15px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+

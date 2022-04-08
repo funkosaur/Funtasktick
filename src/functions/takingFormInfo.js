@@ -22,7 +22,7 @@ function processFormInfo(event) {
     projectTitle.value.toUpperCase(),
     projectDescription.value,
     projectDueDate.value,
-    projectPriority.value,
+    projectPriority.checked,
     projectNotes.value,
     []
   );

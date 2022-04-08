@@ -2,7 +2,7 @@ import {projects} from "./takingFormInfo.js";
 import tasksPage from "../pages/tasksPage.js";
 
 const taskFactory = (task, dueDate) => {
-    return { task, dueDate};
+    return { task, dueDate };
   };
 
 function showTaskInputs(currentProject) {
@@ -34,12 +34,49 @@ function showTaskInputs(currentProject) {
 
             while ( tasksList.firstChild ) tasksList.removeChild( tasksList.firstChild );
 
-            this.tasks.forEach((currentTasks) => {
+            this.tasks.forEach((currentTasks, index) => {
                 const allTasks = document.createElement("li");
                 allTasks.classList.add("tasks");
-                allTasks.textContent = currentTasks.task;
+                allTasks.setAttribute("id", "allTasks");
                 tasksList.appendChild(allTasks);
-                // add checkboxes and dates
+
+                const checkboxAndTextDiv = document.createElement("div");
+                checkboxAndTextDiv.setAttribute("id", "checkboxAndTextDiv");
+                allTasks.appendChild(checkboxAndTextDiv);
+
+                const outerCheckBox = document.createElement("div");
+                outerCheckBox.classList.add("outer");
+                checkboxAndTextDiv.appendChild(outerCheckBox);
+
+                const checkBox = document.createElement("input");
+                checkBox.setAttribute("id", `checkbox${index}`);
+                checkBox.type = "checkbox";
+                outerCheckBox.appendChild(checkBox);
+
+                const checkBoxLabel = document.createElement("label");
+                checkBoxLabel.setAttribute("for", `checkbox${index}`);
+                checkBoxLabel.classList.add("inner");
+                outerCheckBox.appendChild(checkBoxLabel);
+
+                const taskText = document.createElement("p");
+                taskText.setAttribute("id", "taskText")
+                taskText.textContent = currentTasks.task;
+                checkboxAndTextDiv.appendChild(taskText);
+
+                const dateAndDelete = document.createElement("div");
+                dateAndDelete.setAttribute("id", "dateAndDelete");
+                allTasks.appendChild(dateAndDelete);
+
+
+                const dueDateTask = document.createElement("div");
+                dueDateTask.setAttribute("id", "dueDateTask");
+                dueDateTask.textContent = `Due: ${currentTasks.dueDate}`;
+                dateAndDelete.appendChild(dueDateTask);
+
+                const deleteButton = document.createElement("button");
+                deleteButton.setAttribute("id", "deleteButton");
+                deleteButton.textContent = "X";
+                dateAndDelete.appendChild(deleteButton);
             });
             newTaskInput.style.display = "none";
             newTaskDate.style.display = "none";
