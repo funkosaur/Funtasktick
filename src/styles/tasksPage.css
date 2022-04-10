@@ -32,6 +32,10 @@
   justify-content: space-between;
 }
 
+#newTaskInput, #newTaskDate, #taskButtonsDiv {
+  display: none;
+}
+
 .taskButtons {
   background: var(--lightReddish);
   border-radius: 2px;
@@ -58,12 +62,12 @@
 
 
 #newTaskInput {
-  width: 76%;
+  width: 60%;
   padding: 8px 18px;
 }
 
 #newTaskDate {
-  width: 24%;
+  width: 20%;
   padding: 5.5px;
 }
 

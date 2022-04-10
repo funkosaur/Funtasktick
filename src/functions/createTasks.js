@@ -73,7 +73,9 @@ function createTasks() {
     const addTaskButton = document.querySelector("#addTaskButton");
 
     newTaskInput.style.display = "none";
+    newTaskInput.value = "";
     newTaskDate.style.display = "none";
+    newTaskDate.value = "";
     taskButtonsDiv.style.display = "none";
     addTaskButton.style.display = "flex"
 }
