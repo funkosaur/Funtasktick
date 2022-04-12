@@ -1,4 +1,3 @@
-import { projects } from "../functions/takingFormInfo.js";
 import showTaskInputs from "../functions/tasksPageEventListeners.js";
 import createTasks from "../functions/createTasks.js";
 
@@ -56,14 +55,18 @@ function tasksPage(project) {
   tasksButtonText.textContent = "Add Task";
   addTaskButton.appendChild(tasksButtonText);
 
+  const inputContainer = document.createElement("div");
+  inputContainer.setAttribute("id", "inputContainer");
+  tasksButton.appendChild(inputContainer);
+
   const newTaskInput = document.createElement("input");
   newTaskInput.setAttribute("id", "newTaskInput");
-  tasksButton.appendChild(newTaskInput);
+  inputContainer.appendChild(newTaskInput);
 
   const newTaskDate = document.createElement("input");
   newTaskDate.type = "date";
   newTaskDate.setAttribute("id", "newTaskDate");
-  tasksButton.appendChild(newTaskDate);
+  inputContainer.appendChild(newTaskDate);
 
   const taskButtonsDiv = document.createElement("div");
   taskButtonsDiv.setAttribute("id", "taskButtonsDiv");
@@ -109,6 +112,10 @@ function tasksPage(project) {
   noteSaveButton.setAttribute("id", "noteSaveButton");
   noteSaveButton.textContent = "Save";
   notesDiv.appendChild(noteSaveButton);
+
+  noteSaveButton.addEventListener("click", () => {
+    project.notes = notesArea.value
+  })
 
   return { project };
 }

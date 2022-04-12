@@ -3,6 +3,7 @@ import { projects } from "./takingFormInfo.js";
 import projectEventHandler from "./projectEventHandler.js";
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
+import deleteItemsInDiv from "./deleteItemsInDiv.js";
 
 const addProjectToNavlist = () => {
 
@@ -10,7 +11,7 @@ const projectNav = document.querySelector("#projectNav");
 
 function createProjectElement() {
   
-  while ( projectNav.firstChild ) projectNav.removeChild( projectNav.firstChild );
+  deleteItemsInDiv(projectNav)
 
   projects.forEach((project, index) => {
     const projectsTabs = document.createElement("li");

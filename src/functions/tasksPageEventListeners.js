@@ -1,7 +1,3 @@
-import { projects } from "./takingFormInfo.js";
-import tasksPage from "../pages/tasksPage.js";
-import createTasks from "./createTasks.js";
-
 
 function showTaskInputs(currentProject) {
   addTaskButton.style.display = "none";
@@ -9,5 +5,7 @@ function showTaskInputs(currentProject) {
     newTaskDate.style.display = "block";
     taskButtonsDiv.style.display = "flex";
 }
+
+
 
 export default showTaskInputs;
