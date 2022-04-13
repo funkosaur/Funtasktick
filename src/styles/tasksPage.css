@@ -93,12 +93,14 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+  height: 66px;
 }
 
 #dateAndDelete {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 8em;
 }
 
 .tasks:hover {
@@ -200,6 +202,15 @@
   color: #b3b3b3;
   font-weight: 600;
 }
+
+#allTasks input:checked ~ #dateAndDelete {
+  text-decoration: line-through;
+  color: #b3b3b3;
+  font-weight: 600;
+}
+
+
+
 #checkboxAndTextDiv input:checked:focus, #checkboxAndTextDiv input:checked:hover {
   box-shadow: 0 0 0 3px #d9d9d9;
   border-color: #666;

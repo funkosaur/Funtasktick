@@ -1,8 +1,8 @@
 import renderTasks from "./renderTasks.js";
 import deleteItemsInDiv from "./deleteItemsInDiv.js";
 
-const taskFactory = (task, dueDate) => {
-  return { task, dueDate };
+const taskFactory = (task, dueDate, done) => {
+  return { task, dueDate, done};
 };
 
 function createTasks() {
@@ -11,7 +11,7 @@ function createTasks() {
   const taskButtonsDiv = document.querySelector("#taskButtonsDiv");
   const addTaskButton = document.querySelector("#addTaskButton");
 
-  const newTask = taskFactory(newTaskInput.value, newTaskDate.value);
+  const newTask = taskFactory(newTaskInput.value, newTaskDate.value, false);
 
   this.tasks.push(newTask);
 

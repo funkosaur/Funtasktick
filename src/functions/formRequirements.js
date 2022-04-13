@@ -31,7 +31,6 @@ function checkFormRequirements() {
   }
 
   if (dueDates < today) {
-    console.log("ssdfsdfsfs");
     isError = true;
     projectDueDate.style.boxShadow = "0px 0px 2px 2px rgb(171, 0, 0)";
     setTimeout(function () {

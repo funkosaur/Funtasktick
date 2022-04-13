@@ -1,5 +1,6 @@
-import showTaskInputs from "../functions/tasksPageEventListeners.js";
+import {showTaskInputs} from "../functions/tasksPageEventListeners.js";
 import createTasks from "../functions/createTasks.js";
+import { projects } from "../functions/takingFormInfo.js";
 
 function tasksPage(project) {
   console.log(project);
@@ -7,6 +8,7 @@ function tasksPage(project) {
 
   const tasksLayout = document.createElement("div");
   tasksLayout.setAttribute("id", "tasksLayout");
+  tasksLayout.setAttribute("data-index", `${projects.indexOf(project)}`);
   contentDiv.appendChild(tasksLayout);
 
   const projectInfo = document.createElement("div");
@@ -45,7 +47,7 @@ function tasksPage(project) {
   addTaskButton.setAttribute("id", "addTaskButton");
   tasksButton.appendChild(addTaskButton);
 
-  addTaskButton.addEventListener("click", showTaskInputs.bind(project));
+  addTaskButton.addEventListener("click", showTaskInputs);
 
   const plusSign = document.createElement("i");
   plusSign.classList.add("fas", "fa-plus");

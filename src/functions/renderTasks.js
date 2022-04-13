@@ -1,9 +1,13 @@
 import deleteItemsInDiv from "./deleteItemsInDiv.js";
+import format from 'date-fns/format';
+import parseISO from 'date-fns/parseISO';
+import linesThrough from "./tasksPageEventListeners.js";
 
 function renderTasks(project) {
 
   project.tasks.forEach((currentTasks, index) => {
     const allTasks = document.createElement("li");
+    allTasks.setAttribute("data-index", `${index}`)
     allTasks.classList.add("tasks");
     allTasks.setAttribute("id", "allTasks");
     tasksList.appendChild(allTasks);
@@ -14,14 +18,15 @@ function renderTasks(project) {
 
     const checkBox = document.createElement("input");
     checkBox.setAttribute("id", `checkbox${index}`);
+    checkBox.setAttribute("data-index", `${index}`)
     checkBox.type = "checkbox";
     checkboxAndTextDiv.appendChild(checkBox);
-    checkboxAndTextDiv.addEventListener("click", () => {
-        console.log(checkBox.checked)
-    })
+    checkBox.checked = currentTasks.done;
+    checkboxAndTextDiv.addEventListener("click", linesThrough)
 
     const taskText = document.createElement("label");
     taskText.setAttribute("id", "taskText");
+    taskText.setAttribute("for", `checkbox${index}`);
     taskText.textContent = currentTasks.task;
     checkboxAndTextDiv.appendChild(taskText);
 
@@ -30,8 +35,13 @@ function renderTasks(project) {
     allTasks.appendChild(dateAndDelete);
 
     const dueDateTask = document.createElement("div");
-    dueDateTask.setAttribute("id", "dueDateTask");
-    dueDateTask.textContent = `Due: ${currentTasks.dueDate}`;
+    dueDateTask.setAttribute("id", `dueDateTask${index}`);
+    if(currentTasks.dueDate == ""){
+      dueDateTask.textContent = "";
+    }else {
+      let taskDueDate = format(parseISO(currentTasks.dueDate), `E dd MMMM`);
+      dueDateTask.textContent = `${taskDueDate}`;
+    }
     dateAndDelete.appendChild(dueDateTask);
 
     const deleteButton = document.createElement("button");
