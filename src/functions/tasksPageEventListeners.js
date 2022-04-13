@@ -12,16 +12,16 @@ function linesThrough() {
   let dataIndex = projectLayout.dataset.index;
   let project = projects[dataIndex];
   project.tasks.forEach((task, index) => {
-    const dueDateTask = document.querySelector(`#dueDateTask${index}`)
+    const dueDateTask = document.querySelector(`#dueDateTask${index}`);
+    const checkBox = document.querySelector(`#checkbox${index}`);
     task.done = checkBox.checked
       if(task.done == true){
         dueDateTask.style.textDecoration = "line-through";
         dueDateTask.style.color = "#b3b3b3";
       }else {
-        dueDateTask.style.textDecoration = "none";
+        dueDateTask.style.textDecoration = "";
         dueDateTask.style.color = "black";
       }
-
   });
     
 }

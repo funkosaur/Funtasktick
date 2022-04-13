@@ -1,7 +1,7 @@
 import deleteItemsInDiv from "./deleteItemsInDiv.js";
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
-import linesThrough from "./tasksPageEventListeners.js";
+import {linesThrough} from './tasksPageEventListeners.js';
 
 function renderTasks(project) {
 
@@ -60,6 +60,7 @@ function renderTasks(project) {
       });
     });
   });
+  linesThrough()
 }
 
 export default renderTasks;

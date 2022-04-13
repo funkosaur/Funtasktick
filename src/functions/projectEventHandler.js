@@ -1,5 +1,5 @@
 import tasksPage from "../pages/tasksPage";
-import { projects } from "../functions/takingFormInfo.js";
+import { projects } from "./takingFormInfo.js";
 import deleteItemsInDiv from "./deleteItemsInDiv.js";
 import renderTasks from "./renderTasks.js";
 
