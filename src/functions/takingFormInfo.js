@@ -1,7 +1,12 @@
 import events from "./pubsub.js";
-import checkFormRequirements from "./formRequirements.js"
+import checkFormRequirements from "./formRequirements.js";
 
-const projects = [];
+window.addEventListener('load', () => {
+  let currentKey = JSON.parse(localStorage.getItem("storageProjects"));
+  if(currentKey !== null) projects = currentKey
+});
+
+let projects = [];
 
 const takeFormInfo = () => {
   const projectFactory = (title, description, dueDate, priority, notes, tasks) => {
@@ -37,6 +42,14 @@ const form = document.querySelector("#formContent");
 form.addEventListener("submit", processFormInfo);
 
 };
+
+events.on("projectCreated", projectsChanged)
+
+function projectsChanged() {
+    let newProject= JSON.stringify(projects);
+    localStorage.setItem("storageProjects", newProject);
+    console.log(localStorage)
+}
 
 export { takeFormInfo, projects } ;
 

@@ -2,6 +2,8 @@ import deleteItemsInDiv from "./deleteItemsInDiv.js";
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import {linesThrough} from './tasksPageEventListeners.js';
+import events from "./pubsub.js";
+import {projects} from "./takingFormInfo.js";
 
 function renderTasks(project) {
 
@@ -61,6 +63,7 @@ function renderTasks(project) {
     });
   });
   linesThrough()
+  events.emit("projectCreated", projects);
 }
 
 export default renderTasks;
