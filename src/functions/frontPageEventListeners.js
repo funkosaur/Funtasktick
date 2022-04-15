@@ -1,5 +1,5 @@
 import formPage from "../pages/formPage.js";
-import {takeFormInfo, projects} from "./takingFormInfo.js";
+import { takeFormInfo } from "./takingFormInfo.js";
 import deleteItemsInDiv from "./deleteItemsInDiv.js";
 
 const frontPageEventListeners = () => {

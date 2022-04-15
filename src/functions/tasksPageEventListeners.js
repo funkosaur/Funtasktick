@@ -1,4 +1,4 @@
-import { projects } from "./takingFormInfo.js";
+import { projects } from "../index.js";
 
 function showTaskInputs() {
   addTaskButton.style.display = "none";

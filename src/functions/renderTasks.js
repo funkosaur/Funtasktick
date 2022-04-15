@@ -3,7 +3,7 @@ import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import {linesThrough} from './tasksPageEventListeners.js';
 import events from "./pubsub.js";
-import {projects} from "./takingFormInfo.js";
+import {projects} from "../index.js";
 
 function renderTasks(project) {
 

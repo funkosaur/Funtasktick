@@ -1,6 +1,6 @@
 import {showTaskInputs} from "../functions/tasksPageEventListeners.js";
 import createTasks from "../functions/createTasks.js";
-import { projects } from "../functions/takingFormInfo.js";
+import { projects } from "../index.js";
 
 function tasksPage(project) {
   console.log(project);

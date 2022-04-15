@@ -1,5 +1,5 @@
 import events from "./pubsub.js";
-import { projects } from "./takingFormInfo.js";
+import { projects } from "../index.js";
 import projectEventHandler from "./projectEventHandler.js";
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
@@ -10,7 +10,7 @@ const addProjectToNavlist = () => {
 const projectNav = document.querySelector("#projectNav");
 
 function createProjectElement() {
-  
+  console.log("iwork")
   deleteItemsInDiv(projectNav)
 
   projects.forEach((project, index) => {
@@ -28,6 +28,7 @@ projectNav.addEventListener("click", projectEventHandler);
 
 events.on("projectCreated", createProjectElement);
 
+
 };
 
-export default addProjectToNavlist
+export { addProjectToNavlist };

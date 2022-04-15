@@ -1,12 +1,6 @@
 import events from "./pubsub.js";
 import checkFormRequirements from "./formRequirements.js";
-
-window.addEventListener('load', () => {
-  let currentKey = JSON.parse(localStorage.getItem("storageProjects"));
-  if(currentKey !== null) projects = currentKey
-});
-
-let projects = [];
+import { projects } from "../index.js";
 
 const takeFormInfo = () => {
   const projectFactory = (title, description, dueDate, priority, notes, tasks) => {
@@ -51,5 +45,5 @@ function projectsChanged() {
     console.log(localStorage)
 }
 
-export { takeFormInfo, projects } ;
+export { takeFormInfo } ;
 
