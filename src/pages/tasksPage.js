@@ -1,9 +1,10 @@
 import {showTaskInputs} from "../functions/tasksPageEventListeners.js";
 import createTasks from "../functions/createTasks.js";
 import { projects } from "../index.js";
+import events from "../functions/pubsub.js";
 
 function tasksPage(project) {
-  console.log(project);
+
   const contentDiv = document.querySelector("#content");
 
   const tasksLayout = document.createElement("div");
@@ -117,6 +118,7 @@ function tasksPage(project) {
 
   noteSaveButton.addEventListener("click", () => {
     project.notes = notesArea.value
+    events.emit("projectCreated", projects);
   })
 
   return { project };

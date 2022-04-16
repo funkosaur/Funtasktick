@@ -5,12 +5,8 @@ import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import deleteItemsInDiv from "./deleteItemsInDiv.js";
 
-const addProjectToNavlist = () => {
-
-const projectNav = document.querySelector("#projectNav");
-
 function createProjectElement() {
-  console.log("iwork")
+  
   deleteItemsInDiv(projectNav)
 
   projects.forEach((project, index) => {
@@ -23,6 +19,11 @@ function createProjectElement() {
   });
 }
 
+const addProjectToNavlist = () => {
+
+const projectNav = document.querySelector("#projectNav");
+
+createProjectElement()
 
 projectNav.addEventListener("click", projectEventHandler);
 

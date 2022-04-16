@@ -29,7 +29,6 @@ function processFormInfo(event) {
   projects.push(newProject);
   events.emit("projectCreated", projects);
   this.reset();
-  console.log(projects);
 }
 
 const form = document.querySelector("#formContent");
@@ -42,7 +41,6 @@ events.on("projectCreated", projectsChanged)
 function projectsChanged() {
     let newProject= JSON.stringify(projects);
     localStorage.setItem("storageProjects", newProject);
-    console.log(localStorage)
 }
 
 export { takeFormInfo } ;

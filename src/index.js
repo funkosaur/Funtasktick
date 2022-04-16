@@ -7,13 +7,14 @@ import { addProjectToNavlist } from "./functions/createProject.js";
 
 let projects = [];
 
+(function() {
+  let currentKey = JSON.parse(localStorage.getItem("storageProjects"));
+    if(currentKey !== null) projects = currentKey
+})();
 
 formPage()
 frontPageEventListeners()
-window.addEventListener('load', () => {
-    let currentKey = JSON.parse(localStorage.getItem("storageProjects"));
-    if(currentKey !== null) projects = currentKey
-  });
+
 takeFormInfo()
 addProjectToNavlist()
 
