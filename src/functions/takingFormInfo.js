@@ -1,4 +1,4 @@
-import events from "./pubsub.js";
+import events from "./utility/pubsub.js";
 import checkFormRequirements from "./formRequirements.js";
 import { projects } from "../index.js";
 

@@ -1,6 +1,6 @@
 import tasksPage from "../pages/tasksPage";
 import { projects } from "../index.js";
-import deleteItemsInDiv from "./deleteItemsInDiv.js";
+import deleteItemsInDiv from "./utility/deleteItemsInDiv.js";
 import renderTasks from "./renderTasks.js";
 
 function projectEventHandler(e) {

@@ -1,8 +1,8 @@
-import deleteItemsInDiv from "./deleteItemsInDiv.js";
+import deleteItemsInDiv from "./utility/deleteItemsInDiv.js";
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import {linesThrough} from './tasksPageEventListeners.js';
-import events from "./pubsub.js";
+import events from "./utility/pubsub.js";
 import {projects} from "../index.js";
 
 function renderTasks(project) {

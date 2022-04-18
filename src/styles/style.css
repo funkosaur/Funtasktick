@@ -63,12 +63,13 @@ body {
 }
 
 #searchDiv {
-  width: 25%;
+  width: 350px;
   font-family: Niveau;
+  position: relative;
 }
 
 #searchDiv input {
-  width: 90%;
+  width: 300px;
   height: 35px;
   background-color: var(--lightReddish);
   border: none;
@@ -91,11 +92,31 @@ body {
   background-color: black;
   position: absolute;
   z-index: 9999;
-  border-bottom: 1px solid white;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  border: 1px solid black;
+  outline: 1px solid white;
   color: white;
-  border-radius: 2px;
+  margin-top: 1px;
+  display: none;
+}
+
+.results {
+  padding: 8px 18px;
+  font-weight: bold;
+  border-top: 1px solid #666;
+}
+
+.results:hover{
+  background-color: var(--lightRed);
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#searchList:last-child {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 i {

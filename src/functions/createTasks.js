@@ -1,5 +1,7 @@
 import renderTasks from "./renderTasks.js";
-import deleteItemsInDiv from "./deleteItemsInDiv.js";
+import deleteItemsInDiv from "./utility/deleteItemsInDiv.js";
+import {projects} from "../index.js"
+import events from "./utility/pubsub.js";
 
 const taskFactory = (task, dueDate, done) => {
   return { task, dueDate, done};
@@ -19,12 +21,15 @@ function createTasks() {
 
   renderTasks(this);
 
+
   newTaskInput.style.display = "none";
   newTaskInput.value = "";
   newTaskDate.style.display = "none";
   newTaskDate.value = "";
   taskButtonsDiv.style.display = "none";
   addTaskButton.style.display = "flex";
+  
+  events.emit("projectCreated", projects);
 }
 
 export default createTasks;

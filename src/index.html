@@ -14,13 +14,12 @@
       <label for="logo">Funtasktick</label>
     </div>
       <div id="searchDiv">
-        <input type="search" id="searchBar" placeholder="Find your task...">
-        <label for="searchBar"><i class="fa-solid fa-magnifying-glass fa-lg"></i></i></label>
-        <ul id="searchList">
-          <li class="results">stop</li>
-          <li class="results">stop</li>
-          <li class="results">stop</li>
-          <li class="results">stop</li>
+        <input type="search" id="searchBar" placeholder="Find your task..." data-search>
+        <label for="searchBar" id="searchIcon"><i class="fa-solid fa-magnifying-glass fa-lg"></i></i></label>
+        <ul id="searchList" data-user-cards-container>
+          <template data-user-template>
+            <li class="results hidden" data-list-item></li>
+          </template>
         </ul>
       </div>
       <button id="addNewProject">Add a New Project  <i class="fa-solid fa-plus"></i></button>

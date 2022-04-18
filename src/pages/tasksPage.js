@@ -1,7 +1,7 @@
 import {showTaskInputs} from "../functions/tasksPageEventListeners.js";
 import createTasks from "../functions/createTasks.js";
 import { projects } from "../index.js";
-import events from "../functions/pubsub.js";
+import events from "../functions/utility/pubsub.js";
 
 function tasksPage(project) {
 

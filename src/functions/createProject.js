@@ -1,9 +1,9 @@
-import events from "./pubsub.js";
+import events from "./utility/pubsub.js";
 import { projects } from "../index.js";
 import projectEventHandler from "./projectEventHandler.js";
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
-import deleteItemsInDiv from "./deleteItemsInDiv.js";
+import deleteItemsInDiv from "./utility/deleteItemsInDiv.js";
 
 function createProjectElement() {
   
