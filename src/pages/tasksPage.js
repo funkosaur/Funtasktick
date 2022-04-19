@@ -1,10 +1,9 @@
-import {showTaskInputs} from "../functions/tasksPageEventListeners.js";
+import { showTaskInputs } from "../functions/tasksPageEventListeners.js";
 import createTasks from "../functions/createTasks.js";
 import { projects } from "../index.js";
 import events from "../functions/utility/pubsub.js";
 
 function tasksPage(project) {
-
   const contentDiv = document.querySelector("#content");
 
   const tasksLayout = document.createElement("div");
@@ -117,9 +116,20 @@ function tasksPage(project) {
   notesDiv.appendChild(noteSaveButton);
 
   noteSaveButton.addEventListener("click", () => {
-    project.notes = notesArea.value
+    project.notes = notesArea.value;
     events.emit("projectCreated", projects);
-  })
+  });
+
+  const deleteDiv = document.createElement("div");
+  deleteDiv.classList.add("delete-button");
+  tasksLayout.appendChild(deleteDiv);
+
+  const deleteProjectButton = document.createElement("button");
+  deleteProjectButton.setAttribute("id", "deleteButton");
+  deleteProjectButton.setAttribute("data-index", `${projects.indexOf(project)}`);
+  deleteProjectButton.textContent = "Delete Project";
+  deleteDiv.appendChild(deleteProjectButton);
+
 
   return { project };
 }

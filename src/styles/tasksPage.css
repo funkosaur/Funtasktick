@@ -1,7 +1,7 @@
 #tasksLayout {
   display: grid;
   grid-template-columns: 0.5fr minmax(auto, 40em) 0.2fr minmax(auto, 20em) 0.5fr;
-  grid-template-rows: 200px 4fr;
+  grid-template-rows: 200px 4fr 50px;
   row-gap: 2em;
   font-weight: bold;
 }
@@ -118,6 +118,14 @@
   font-size: 1.2em;
   margin-top: 150px;
   font-family: Niveau;
+}
+
+.delete-button {
+  grid-row: 3/4;
+  grid-column: 4/5;
+  display: flex;
+  justify-content:center;
+  align-items: center;
 }
 
 #notesArea{
