@@ -1,6 +1,7 @@
 @import "./reset.css";
 @import "./formPage.css";
 @import "./tasksPage.css";
+@import "./welcomePage.css";
 
 * {
   box-sizing: border-box;

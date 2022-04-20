@@ -4,6 +4,7 @@ import { projects } from "../index.js";
 import events from "../functions/utility/pubsub.js";
 import {createProjectElement} from "../functions/createProject.js";
 import formPage from "./formPage.js";
+import welcomePage from "./welcomePage.js";
 
 function tasksPage(project) {
   const contentDiv = document.querySelector("#content");
@@ -141,7 +142,7 @@ function tasksPage(project) {
       if (index == e.target.dataset.index) {
         projects.splice(index, 1);
         createProjectElement();
-        formPage();
+        welcomePage()
         events.emit("projectCreated", projects);
       }
     });
