@@ -2,6 +2,8 @@ import { showTaskInputs } from "../functions/tasksPageEventListeners.js";
 import createTasks from "../functions/createTasks.js";
 import { projects } from "../index.js";
 import events from "../functions/utility/pubsub.js";
+import {createProjectElement} from "../functions/createProject.js";
+import formPage from "./formPage.js";
 
 function tasksPage(project) {
   const contentDiv = document.querySelector("#content");
@@ -112,7 +114,7 @@ function tasksPage(project) {
 
   const noteSaveButton = document.createElement("button");
   noteSaveButton.setAttribute("id", "noteSaveButton");
-  noteSaveButton.textContent = "Save";
+  noteSaveButton.textContent = "Save Notes";
   notesDiv.appendChild(noteSaveButton);
 
   noteSaveButton.addEventListener("click", () => {
@@ -126,10 +128,24 @@ function tasksPage(project) {
 
   const deleteProjectButton = document.createElement("button");
   deleteProjectButton.setAttribute("id", "deleteButton");
-  deleteProjectButton.setAttribute("data-index", `${projects.indexOf(project)}`);
+  deleteProjectButton.setAttribute(
+    "data-index",
+    `${projects.indexOf(project)}`
+  );
   deleteProjectButton.textContent = "Delete Project";
   deleteDiv.appendChild(deleteProjectButton);
 
+  deleteProjectButton.addEventListener("click", (e) => {
+
+    projects.forEach((currentProject, index) => {
+      if (index == e.target.dataset.index) {
+        projects.splice(index, 1);
+        createProjectElement();
+        formPage();
+        events.emit("projectCreated", projects);
+      }
+    });
+  });
 
   return { project };
 }

@@ -1,5 +1,9 @@
+import deleteItemsInDiv from "../functions/utility/deleteItemsInDiv";
+
 const formPage = () => {
   const contentDiv = document.querySelector("#content");
+
+  deleteItemsInDiv(contentDiv);
 
   const formLayout = document.createElement("div");
   formLayout.setAttribute("id", "formLayout");

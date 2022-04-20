@@ -32,4 +32,4 @@ events.on("projectCreated", createProjectElement);
 
 };
 
-export { addProjectToNavlist };
+export { addProjectToNavlist, createProjectElement };
