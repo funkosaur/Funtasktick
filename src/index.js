@@ -3,6 +3,7 @@ import formPage from "./pages/formPage.js";
 import {frontPageEventListeners, getData} from "./functions/frontPageEventListeners.js";
 import { takeFormInfo } from "./functions/takingFormInfo.js";
 import { addProjectToNavlist } from "./functions/createProject.js";
+import welcomePage from "./pages/welcomePage.js";
 
 
 let projects = [];
@@ -12,10 +13,8 @@ let projects = [];
     if(currentKey !== null) projects = currentKey
 })();
 
-formPage()
+welcomePage()
 frontPageEventListeners()
-
-takeFormInfo()
 addProjectToNavlist()
 getData()
 

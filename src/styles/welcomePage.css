@@ -1,14 +1,29 @@
 #welcomeLayout {
     display: grid;
-    grid-template-columns: 0.5fr minmax(auto, 40em) 0.5fr;
+    grid-template-columns: 0.35fr minmax(auto, 40em) 0.5fr;
     grid-template-rows: 4fr 1fr;
     font-weight: bold;
+    overflow: hidden;
 }
 
 #welcomeContent {
     grid-column: 2/3;
     grid-row: 1/2;
     display: flex;
+}
+
+#descriptionDiv {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translate(0px, 210px);
+    transition: all 1s ease-in-out;
+    width: 100%;
+
 }
 
 @keyframes showTopText {
