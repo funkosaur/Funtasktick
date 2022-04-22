@@ -5,31 +5,51 @@ import { projects } from "../index.js";
 import events from "./utility/pubsub.js";
 import tasksPage from "../pages/tasksPage.js";
 import renderTasks from "./renderTasks.js";
+import todaysPage from "../pages/todayPage.js";
+import { linesThrough, globalLinesThrough } from "./tasksPageEventListeners.js";
 
 const userCardTemplate = document.querySelector("[data-user-template]");
 const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.querySelector("[data-search]");
 const searchIcon = document.querySelector("#searchIcon");
 const contentDiv = document.querySelector("#content");
-
+const todayDiv = document.querySelector("#todayDiv");
 
 let tasksFromProjects = [];
 let allTasks = [];
+let todaysTasks = {};
+todaysTasks.tasks = [];
+
+todayDiv.addEventListener("click", () => {
+  getTodaysTasks();
+  todaysPage();
+  if (todaysTasks.tasks.length == 0) {
+    const tasksList = document.querySelector("#tasksList");
+    tasksList.textContent = "No tasks to be done today. :)";
+  } else {
+    renderTasks(todaysTasks, globalLinesThrough);
+    const deleteBtn = document.querySelectorAll("#deleteButton");
+    deleteBtn.forEach((btn) => {
+      btn.style.display = "none";
+    });
+    const dateAndDelete = document.querySelectorAll("#dateAndDelete");
+    dateAndDelete.forEach((box) => (box.style.justifyContent = "flex-end"));
+  }
+});
 
 searchInput.addEventListener("input", (e) => {
   userCardContainer.style.display = "block";
   const searchTerm = e.target.value.toLowerCase();
-  console.log(searchTerm)
+  console.log(searchTerm);
   allTasks.forEach((task) => {
     const isVisible = task.taskText.includes(searchTerm);
     task.element.classList.toggle("hidden", !isVisible);
   });
-  if(searchTerm.length < 1) userCardContainer.style.display = "none";
+  if (searchTerm.length < 1) userCardContainer.style.display = "none";
 });
 
 events.on("projectCreated", updateTasksArray);
 events.on("projectCreated", getData);
-
 
 searchIcon.addEventListener("click", (e) => {
   const searchValue = searchInput.value.toLowerCase();
@@ -38,7 +58,7 @@ searchIcon.addEventListener("click", (e) => {
       if (task.task == searchValue) {
         deleteItemsInDiv(contentDiv);
         tasksPage(project);
-        renderTasks(project);
+        renderTasks(project, linesThrough);
         searchInput.value = "";
         userCardContainer.style.display = "none";
       }
@@ -58,22 +78,21 @@ const frontPageEventListeners = () => {
 };
 
 function getData() {
-  updateTasksArray()
-  console.log(allTasks)
-  allTasks = []
-  deleteItemsInDiv(userCardContainer)
+  updateTasksArray();
+  console.log(allTasks);
+  allTasks = [];
+  deleteItemsInDiv(userCardContainer);
   allTasks = tasksFromProjects.map((task) => {
     const card = userCardTemplate.content.cloneNode(true).children[0];
     card.textContent = task.task;
     card.addEventListener("click", () => {
       searchInput.value = task.task.toUpperCase();
-      searchIcon.click()
+      searchIcon.click();
     });
     userCardContainer.append(card);
     return { taskText: task.task, element: card };
   });
-  console.log("runssss")
-
+  console.log("runssss");
 }
 
 function updateTasksArray() {
@@ -89,4 +108,14 @@ function fillTasks() {
   });
 }
 
-export { frontPageEventListeners, getData };
+function getTodaysTasks() {
+  todaysTasks.tasks = [];
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      let today = new Date().toISOString().slice(0, 10);
+      if (task.dueDate == today) todaysTasks.tasks.push(task);
+    });
+  });
+}
+
+export { frontPageEventListeners, getData, todaysTasks };

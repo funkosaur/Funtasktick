@@ -2,6 +2,7 @@
 @import "./formPage.css";
 @import "./tasksPage.css";
 @import "./welcomePage.css";
+@import "./todayPage.css";
 
 * {
   box-sizing: border-box;

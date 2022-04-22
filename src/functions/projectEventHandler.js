@@ -2,6 +2,7 @@ import tasksPage from "../pages/tasksPage";
 import { projects } from "../index.js";
 import deleteItemsInDiv from "./utility/deleteItemsInDiv.js";
 import renderTasks from "./renderTasks.js";
+import {linesThrough} from "./tasksPageEventListeners.js"
 
 function projectEventHandler(e) {
   const contentDiv = document.querySelector("#content");
@@ -15,7 +16,7 @@ function projectEventHandler(e) {
 
   tasksPage(project);
 
-  renderTasks(project);
+  renderTasks(project, linesThrough);
 }
 
 export default projectEventHandler;

@@ -5,7 +5,7 @@ import {linesThrough} from './tasksPageEventListeners.js';
 import events from "./utility/pubsub.js";
 import {projects} from "../index.js";
 
-function renderTasks(project) {
+function renderTasks(project, linesFunction) {
 
   project.tasks.forEach((currentTasks, index) => {
     const allTasks = document.createElement("li");
@@ -24,7 +24,8 @@ function renderTasks(project) {
     checkBox.type = "checkbox";
     checkboxAndTextDiv.appendChild(checkBox);
     checkBox.checked = currentTasks.done;
-    checkboxAndTextDiv.addEventListener("click", linesThrough)
+
+    checkboxAndTextDiv.addEventListener("click", linesFunction)
 
     const taskText = document.createElement("label");
     taskText.setAttribute("id", "taskText");
@@ -57,12 +58,12 @@ function renderTasks(project) {
         if (index == e.target.dataset.index) {
           project.tasks.splice(index, 1);
           deleteItemsInDiv(tasksList);
-          renderTasks(project);
+          renderTasks(project, linesThrough);
         }
       });
     });
   });
-  linesThrough()
+  linesFunction()
   events.emit("projectCreated", projects);
 }
 

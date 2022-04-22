@@ -1,4 +1,5 @@
 import { projects } from "../index.js";
+import {todaysTasks} from "./frontPageEventListeners.js"
 
 function showTaskInputs() {
   addTaskButton.style.display = "none";
@@ -26,6 +27,21 @@ function linesThrough() {
     
 }
 
+function globalLinesThrough() {
+  todaysTasks.tasks.forEach((task, index) => {
+    const dueDateTask = document.querySelector(`#dueDateTask${index}`);
+    const checkBox = document.querySelector(`#checkbox${index}`);
+    task.done = checkBox.checked
+      if(task.done == true){
+        dueDateTask.style.textDecoration = "line-through";
+        dueDateTask.style.color = "#b3b3b3";
+      }else {
+        dueDateTask.style.textDecoration = "";
+        dueDateTask.style.color = "black";
+      }
+  });
+}
 
 
-export { showTaskInputs, linesThrough };
+
+export { showTaskInputs, linesThrough, globalLinesThrough };

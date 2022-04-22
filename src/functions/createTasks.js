@@ -2,6 +2,7 @@ import renderTasks from "./renderTasks.js";
 import deleteItemsInDiv from "./utility/deleteItemsInDiv.js";
 import {projects} from "../index.js"
 import events from "./utility/pubsub.js";
+import {linesThrough} from "./tasksPageEventListeners.js"
 
 const taskFactory = (task, dueDate, done) => {
   return { task, dueDate, done};
@@ -19,7 +20,7 @@ function createTasks() {
 
   deleteItemsInDiv(tasksList);
 
-  renderTasks(this);
+  renderTasks(this, linesThrough);
 
 
   newTaskInput.style.display = "none";
