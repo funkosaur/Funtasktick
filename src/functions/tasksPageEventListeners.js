@@ -1,5 +1,6 @@
 import { projects } from "../index.js";
 import {todaysTasks} from "./frontPageEventListeners.js"
+import events from "./utility/pubsub.js";
 
 function showTaskInputs() {
   addTaskButton.style.display = "none";
@@ -24,6 +25,7 @@ function linesThrough() {
         dueDateTask.style.color = "black";
       }
   });
+  events.emit("projectCreated", projects);
     
 }
 
@@ -40,6 +42,7 @@ function globalLinesThrough() {
         dueDateTask.style.color = "black";
       }
   });
+  events.emit("projectCreated", projects);
 }
 
 
