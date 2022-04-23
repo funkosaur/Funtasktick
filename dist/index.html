@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" name="description" content="Funtasktick is a simple todo web app where you can make projects and tasks to tick off." />
+    <title>Funtasktick</title>
+    <link rel="icon" href="favicon.ico"  type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/a85f7ecfe8.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="favicon.ico"><script defer src="index.bundle.js"></script></head>
+  <body>
+    <header id="myHeader">
+      <div id="logoDiv">
+      <img id="logo" src=c97219f3cf70d34a64f0.png width="100px" height="80%" alt="website logo"></img>
+      <label for="logo">Funtasktick</label>
+    </div>
+      <div id="searchDiv">
+        <input type="search" id="searchBar" placeholder="Find your task..." data-search>
+        <label for="searchBar" id="searchIcon"><i class="fa-solid fa-magnifying-glass fa-lg"></i></i></label>
+        <ul id="searchList" data-user-cards-container>
+          <template data-user-template>
+            <li class="results hidden" data-list-item></li>
+          </template>
+        </ul>
+      </div>
+      <button id="addNewProject">Add a New Project  <i class="fa-solid fa-plus"></i></button>
+    </header>
+      <div id="leftNavigation">
+        <div id="todayDiv" class="navigationPanel"><i class="fa-solid fa-calendar-day"></i>Today</div>
+        <div id="thisWeekDiv" class="navigationPanel"> <i class="fa-solid fa-calendar-week"></i>This Week</div>
+        <div id="projectsDiv" class="navigationPanel"><div><i class="fa-solid fa-list-check"></i>My Projects</div><i class="fa-solid fa-angles-down"></i></div>
+        <ul id="projectNav"></ul>
+      </div>
+      <div id="content"></div>
+  </body>
+</html>
