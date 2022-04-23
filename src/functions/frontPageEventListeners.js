@@ -4,9 +4,11 @@ import deleteItemsInDiv from "./utility/deleteItemsInDiv.js";
 import { projects } from "../index.js";
 import events from "./utility/pubsub.js";
 import tasksPage from "../pages/tasksPage.js";
+import { startOfWeek, endOfWeek } from 'date-fns'
 import renderTasks from "./renderTasks.js";
 import todaysPage from "../pages/todayPage.js";
 import { linesThrough, globalLinesThrough } from "./tasksPageEventListeners.js";
+import thisWeeksPage from "../pages/thisWeekPage.js";
 
 const userCardTemplate = document.querySelector("[data-user-template]");
 const userCardContainer = document.querySelector("[data-user-cards-container]");
@@ -14,6 +16,7 @@ const searchInput = document.querySelector("[data-search]");
 const searchIcon = document.querySelector("#searchIcon");
 const contentDiv = document.querySelector("#content");
 const todayDiv = document.querySelector("#todayDiv");
+const thisWeekDiv = document.querySelector("#thisWeekDiv");
 
 let tasksFromProjects = [];
 let allTasks = [];
@@ -21,6 +24,27 @@ let todaysTasks = {};
 todaysTasks.tasks = [];
 let thisWeeksTasks = {};
 thisWeeksTasks.tasks = [];
+
+thisWeekDiv.addEventListener("click", () => {
+  getThisWeeksTasks();
+  thisWeeksPage()
+  if (thisWeeksTasks.tasks.length == 0) {
+    const tasksList = document.querySelector("#tasksList");
+    tasksList.textContent = "No tasks to be done this week. :)";
+    tasksList.style.fontSize = "1.8em"
+    tasksList.style.display = "flex"
+    tasksList.style.justifyContent = "center"
+  } else {
+    renderTasks(thisWeeksTasks, globalLinesThrough.bind(thisWeeksTasks));
+    const deleteBtn = document.querySelectorAll("#deleteButton");
+    deleteBtn.forEach((btn) => {
+      btn.style.display = "none";
+    });
+    const dateAndDelete = document.querySelectorAll("#dateAndDelete");
+    dateAndDelete.forEach((box) => (box.style.justifyContent = "flex-end"));
+  }
+
+})
 
 todayDiv.addEventListener("click", () => {
   getTodaysTasks();
@@ -32,7 +56,7 @@ todayDiv.addEventListener("click", () => {
     tasksList.style.display = "flex"
     tasksList.style.justifyContent = "center"
   } else {
-    renderTasks(todaysTasks, globalLinesThrough);
+    renderTasks(todaysTasks, globalLinesThrough.bind(todaysTasks));
     const deleteBtn = document.querySelectorAll("#deleteButton");
     deleteBtn.forEach((btn) => {
       btn.style.display = "none";
@@ -127,7 +151,10 @@ function getThisWeeksTasks() {
   thisWeeksTasks.tasks = [];
   projects.forEach((project) => {
     project.tasks.forEach((task) => {
-      
+      let today = new Date()
+      let start = startOfWeek(today, {weekStartsOn: 2}).toISOString().slice(0, 10);
+      let end = endOfWeek(today, {weekStartsOn: 1}).toISOString().slice(0, 10); 
+      if(task.dueDate > start && task.dueDate < end) thisWeeksTasks.tasks.push(task)
     })
   })
 }

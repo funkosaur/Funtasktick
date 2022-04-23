@@ -30,7 +30,7 @@ function linesThrough() {
 }
 
 function globalLinesThrough() {
-  todaysTasks.tasks.forEach((task, index) => {
+  this.tasks.forEach((task, index) => {
     const dueDateTask = document.querySelector(`#dueDateTask${index}`);
     const checkBox = document.querySelector(`#checkbox${index}`);
     task.done = checkBox.checked
