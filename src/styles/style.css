@@ -3,6 +3,7 @@
 @import "./tasksPage.css";
 @import "./welcomePage.css";
 @import "./todayPage.css";
+@import "./thisWeekPage.css";
 
 * {
   box-sizing: border-box;

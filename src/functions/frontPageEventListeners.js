@@ -19,6 +19,8 @@ let tasksFromProjects = [];
 let allTasks = [];
 let todaysTasks = {};
 todaysTasks.tasks = [];
+let thisWeeksTasks = {};
+thisWeeksTasks.tasks = [];
 
 todayDiv.addEventListener("click", () => {
   getTodaysTasks();
@@ -26,6 +28,9 @@ todayDiv.addEventListener("click", () => {
   if (todaysTasks.tasks.length == 0) {
     const tasksList = document.querySelector("#tasksList");
     tasksList.textContent = "No tasks to be done today. :)";
+    tasksList.style.fontSize = "1.8em"
+    tasksList.style.display = "flex"
+    tasksList.style.justifyContent = "center"
   } else {
     renderTasks(todaysTasks, globalLinesThrough);
     const deleteBtn = document.querySelectorAll("#deleteButton");
@@ -116,6 +121,15 @@ function getTodaysTasks() {
       if (task.dueDate == today) todaysTasks.tasks.push(task);
     });
   });
+}
+
+function getThisWeeksTasks() {
+  thisWeeksTasks.tasks = [];
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      
+    })
+  })
 }
 
 export { frontPageEventListeners, getData, todaysTasks };
