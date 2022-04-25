@@ -14,7 +14,7 @@ function createProjectElement() {
     projectsTabs.classList.add("navigationPanelProjects");
     projectsTabs.setAttribute("data-index", `${index}`);
     let projectDue = format(parseISO(project.dueDate), `dd/MMMM`);
-    projectsTabs.textContent = `${project.title} Due: ${projectDue}`;
+    projectsTabs.textContent = `${project.title}`
     projectNav.appendChild(projectsTabs);
   });
 }
