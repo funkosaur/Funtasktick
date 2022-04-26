@@ -1,9 +1,11 @@
 #welcomeLayout {
     display: grid;
-    grid-template-columns: 0.35fr minmax(auto, 40em) 0.5fr;
+    grid-template-columns: 0.35fr minmax(auto, 45em) 0.65fr;
     grid-template-rows: 4fr 1fr;
     font-weight: bold;
     overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 #welcomeContent {
