@@ -24,6 +24,7 @@
   --gray: #d7d7d7;
   --white: #fad9d1;
   --main-font: "Niveau";
+  --search-width: 80%;
 }
 
 body {
@@ -39,10 +40,11 @@ body {
   grid-row: 1/2;
   grid-column: 1/3;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--red);
   color: black;
+  padding: 0 16px;
 }
 
 #leftNavigation {
@@ -66,24 +68,23 @@ body {
 }
 
 #searchDiv {
-  width: 350px;
+  width: 30%;
   font-family: Niveau;
   position: relative;
 }
 
 #searchDiv input {
-  width: 300px;
+  width: var(--search-width);
   height: 35px;
   background-color: var(--lightReddish);
   border: none;
   border-radius: 2px;
   text-indent: 10px;
   color: white;
+  border-left: 1px solid black;
 }
 
-#searchDiv input:hover {
-  background-color: var(--lightRed);
-}
+
 
 ::placeholder {
   color: white;
@@ -91,12 +92,10 @@ body {
 }
 
 #searchList {
-  width: 300px;
+  width: var(--search-width);
   background-color: black;
   position: absolute;
   z-index: 9999;
-  border: 1px solid black;
-  outline: 1px solid white;
   color: white;
   margin-top: 1px;
   display: none;
@@ -128,6 +127,37 @@ i {
 
 #leftNavigation i {
   margin-right: 10px;
+}
+
+#buttonsDiv {
+  width: 20%;
+  display: flex;
+  justify-content:space-around;
+}
+
+#leftMenu {
+  display: none;
+  background: var(--lightReddish);
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  font-family: Niveau;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+#leftMenu i {
+  margin-left: 0px;
 }
 
 #addNewProject {
@@ -205,14 +235,7 @@ i {
 }
 
 @media only screen and (max-width: 1000px) {
-  #myHeader{
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-  body {
-    grid-template-rows: 20% 80%;
-  }
+  
   #content{
     grid-column: 1/3;
   }
@@ -221,5 +244,11 @@ i {
   }
   #leftNavigation{
     display: none;
+  }
+  #welcomeLayout{
+    grid-template-columns: 1fr minmax(auto, 45em) 1fr;
+  }
+  #formLayout{
+    grid-template-columns: 1fr minmax(auto, 40em) 1fr;
   }
 }

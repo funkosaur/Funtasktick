@@ -1,6 +1,6 @@
 #tasksLayout {
   display: grid;
-  grid-template-columns: 0.3fr minmax(auto, 50em) 0.2fr minmax(auto, 20em) 0.5fr;
+  grid-template-columns: 0.4fr minmax(auto, 50em) 0.2fr minmax(auto, 20em) 0.4fr;
   grid-template-rows: 200px 4fr 50px;
   row-gap: 2em;
   font-weight: bold;
