@@ -8,11 +8,11 @@ const takeFormInfo = () => {
 };
 
 function processFormInfo(event) {
-  const projectTitle = document.querySelector("#projectTitle");
-  const projectDescription = document.querySelector("#projectDescription");
-  const projectDueDate = document.querySelector("#projectDueDate");
+  const projectTitle = document.querySelector("#formProjectTitle");
+  const projectDescription = document.querySelector("#formProjectDescription");
+  const projectDueDate = document.querySelector("#formProjectDueDate");
   const projectPriority = document.querySelector("#projectPriorityCheckbox1");
-  const projectNotes = document.querySelector("#projectNotes");
+  const projectNotes = document.querySelector("#formProjectNotes");
 
   event.preventDefault();
   if(checkFormRequirements()) return;

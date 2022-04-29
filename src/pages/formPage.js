@@ -19,36 +19,36 @@ const formPage = () => {
   formLayout.appendChild(formContent);
 
   const projectTitleLabel = document.createElement("label");
-  projectTitleLabel.for = "projectTitle";
+  projectTitleLabel.for = "formProjectTitle";
   projectTitleLabel.classList.add("formLabels");
   projectTitleLabel.textContent = "Project Title:";
   formContent.appendChild(projectTitleLabel);
 
   const projectTitle = document.createElement("input");
   projectTitle.type = "text";
-  projectTitle.setAttribute("id", "projectTitle");
+  projectTitle.setAttribute("id", "formProjectTitle");
   formContent.appendChild(projectTitle);
 
   const projectDescriptionLabel = document.createElement("label");
-  projectDescriptionLabel.for = "projectDescription";
+  projectDescriptionLabel.for = "formProjectDescription";
   projectDescriptionLabel.classList.add("formLabels");
   projectDescriptionLabel.textContent = "Project Description:";
   formContent.appendChild(projectDescriptionLabel);
 
   const projectDescription = document.createElement("input");
   projectDescription.type = "text";
-  projectDescription.setAttribute("id", "projectDescription");
+  projectDescription.setAttribute("id", "formProjectDescription");
   formContent.appendChild(projectDescription);
 
   const projectDueDateLabel = document.createElement("label");
-  projectDueDateLabel.for = "projectDueDate";
+  projectDueDateLabel.for = "formProjectDueDate";
   projectDueDateLabel.classList.add("formLabels");
   projectDueDateLabel.textContent = "Project Due Date:";
   formContent.appendChild(projectDueDateLabel);
 
   const projectDueDate = document.createElement("input");
   projectDueDate.type = "date";
-  projectDueDate.setAttribute("id", "projectDueDate");
+  projectDueDate.setAttribute("id", "formProjectDueDate");
   formContent.appendChild(projectDueDate);
 
   const priorityDiv = document.createElement("div");
@@ -68,13 +68,13 @@ const formPage = () => {
   priorityDiv.appendChild(projectPriority1);
 
   const projectNotesLabel = document.createElement("label");
-  projectNotesLabel.for = "projectNotes";
+  projectNotesLabel.for = "fomrProjectNotes";
   projectNotesLabel.classList.add("formLabels");
   projectNotesLabel.textContent = "Project Notes:";
   formContent.appendChild(projectNotesLabel);
 
   const projectNotes = document.createElement("textarea");
-  projectNotes.setAttribute("id", "projectNotes");
+  projectNotes.setAttribute("id", "formProjectNotes");
   projectNotes.rows = 7;
   projectNotes.maxLength = 200;
   formContent.appendChild(projectNotes);

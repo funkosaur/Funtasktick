@@ -44,7 +44,7 @@ body {
   align-items: center;
   background-color: var(--red);
   color: black;
-  padding: 0 16px;
+  padding-right: 10px;
 }
 
 #leftNavigation {
@@ -71,6 +71,9 @@ body {
   width: 30%;
   font-family: Niveau;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #searchDiv input {
@@ -251,4 +254,29 @@ i {
   #formLayout{
     grid-template-columns: 1fr minmax(auto, 40em) 1fr;
   }
+  #buttonsDiv{
+    width: 32%;
+  }
+  #leftMenu{
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #myHeader {
+    flex-direction: column;
+    padding-right: 0px;
+  }
+  body{
+    grid-template-rows: 25% 1fr;
+  }
+  #buttonsDiv{
+    width: 80%;
+    align-items: center;
+  }
+  #searchDiv {
+    width: 100%;
+  }
+
+
 }
