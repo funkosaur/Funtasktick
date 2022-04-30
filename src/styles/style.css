@@ -51,6 +51,8 @@ body {
   grid-row: 2/3;
   grid-column: 1/2;
   background-color: var(--gray);
+  transition: all 0.7s ease-in-out;
+  z-index: 9999;
 }
 
 #content {
@@ -86,6 +88,7 @@ body {
   color: white;
   border-left: 1px solid black;
 }
+
 
 
 
@@ -237,19 +240,23 @@ i {
   flex-direction: column;
 }
 
+.leftNavTransform {
+  translate:(0px, 0px);
+}
+
 @media only screen and (max-width: 1000px) {
-  
+
   #content{
     grid-column: 1/3;
   }
   #descriptionDiv{
     width: 75%;
   }
-  #leftNavigation{
-    display: none;
+  .leftNavTransformed{
+    transform: translate(-300px, 0px);
   }
   #welcomeLayout{
-    grid-template-columns: 1fr minmax(auto, 45em) 1fr;
+    grid-template-columns: 1fr;
   }
   #formLayout{
     grid-template-columns: 1fr minmax(auto, 40em) 1fr;
@@ -263,12 +270,16 @@ i {
 }
 
 @media only screen and (max-width: 800px) {
+  .leftNavTransformed{
+    transform: translate(-100%, 0px);
+  }
   #myHeader {
     flex-direction: column;
     padding-right: 0px;
   }
   body{
-    grid-template-rows: 25% 1fr;
+    grid-template-rows: 22vh 1fr;
+    grid-template-columns: 1.5fr 1fr;
   }
   #buttonsDiv{
     width: 80%;
@@ -278,5 +289,22 @@ i {
     width: 100%;
   }
 
+
+}
+
+@media only screen and (max-width: 560px) {
+  #welcomeContent {
+    height: 25em;
+  }
+  .animated-title {
+    height: 20em;
+  }
+  #welcomeLayout {
+    grid-template-rows: 1fr 1fr;
+  }
+  #buttonsDiv {
+    justify-content: space-between;
+    width: 100%;
+  }
 
 }

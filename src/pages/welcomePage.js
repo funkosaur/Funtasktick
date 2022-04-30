@@ -78,9 +78,10 @@ const welcomePage = () => {
 
 setTimeout(() => {
   descriptionDiv.style.transform = "translate(0px, -100px)"
+  if(window.screen.width < 800) descriptionDiv.style.transform = "translate(50px, -100px)"
 }, 2100)
 
-
+// da se namali layoputot u content divot za da ne ide levo desno od toa isto i welcome headingot
 };
 
 export default welcomePage;

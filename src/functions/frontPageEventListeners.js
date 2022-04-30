@@ -17,6 +17,7 @@ const searchIcon = document.querySelector("#searchIcon");
 const contentDiv = document.querySelector("#content");
 const todayDiv = document.querySelector("#todayDiv");
 const thisWeekDiv = document.querySelector("#thisWeekDiv");
+const menuButton = document.querySelector("#leftMenu");
 
 let tasksFromProjects = [];
 let allTasks = [];
@@ -94,6 +95,14 @@ searchIcon.addEventListener("click", (e) => {
     });
   });
 });
+
+menuButton.addEventListener("click", () => {
+  const leftNavigation = document.querySelector("#leftNavigation");
+  leftNavigation.classList.toggle("leftNavTransform")
+  leftNavigation.classList.toggle("leftNavTransformed")
+
+    
+})
 
 const frontPageEventListeners = () => {
   const contentDiv = document.querySelector("#content");

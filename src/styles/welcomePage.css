@@ -4,14 +4,14 @@
     grid-template-rows: 4fr 1fr;
     font-weight: bold;
     overflow: hidden;
-    height: 100%;
-    width: 100%;
 }
 
 #welcomeContent {
     grid-column: 2/3;
     grid-row: 1/2;
     display: flex;
+    width: 100%;
+
 }
 
 #descriptionDiv {
@@ -50,7 +50,7 @@
 .animated-title {
     color: black;
     font-family: Roboto, Arial, sans-serif;
-    height: 38em;
+    height: 70vmin;
     left: 50%;
     position: relative;
     top: 50%;
