@@ -2,7 +2,6 @@ import deleteItemsInDiv from "../functions/utility/deleteItemsInDiv";
 import formPage from "./formPage.js";
 import { takeFormInfo } from "../functions/takingFormInfo.js";
 
-
 const welcomePage = () => {
   const contentDiv = document.querySelector("#content");
 
@@ -75,12 +74,11 @@ const welcomePage = () => {
     takeFormInfo();
   });
 
-
-setTimeout(() => {
-  descriptionDiv.style.transform = "translate(0px, -15vh)"
-  if(window.screen.width < 800) descriptionDiv.style.transform = "translate(50px, -7vh)"
-}, 2100)
-
+  setTimeout(() => {
+    descriptionDiv.style.transform = "translate(0px, -15vh)";
+    if (window.screen.width < 800)
+      descriptionDiv.style.transform = "translate(50px, -7vh)";
+  }, 2100);
 };
 
 export default welcomePage;

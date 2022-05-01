@@ -263,6 +263,9 @@ i {
   #leftMenu {
     display: block;
   }
+  body {
+    grid-template-columns: 1.5fr 1fr;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -275,6 +278,9 @@ i {
     grid-template-columns: 1.5fr 1fr;
   }
   #welcomeLayout {
+    height: 78vh;
+  }
+  #tasksLayout {
     height: 78vh;
   }
   #formContent {
@@ -303,9 +309,15 @@ i {
     justify-content: space-between;
     width: 100%;
   }
+  .delete-button {
+    grid-row: 4/5;
+    grid-column: 1/2;
+  }
   #tasksLayout {
     grid-template-columns: 100vw;
-    grid-template-rows: 200px 2fr 2fr 50px;
+    grid-template-rows: 200px 2fr 600px 50px;
+    height: 100%;
+    overflow: hidden;
   }
   #tasksDiv {
     grid-column: 1/2;
@@ -313,10 +325,7 @@ i {
   #notesDiv {
     grid-row: 3/4;
     grid-column: 1/2;
-  }
-  .delete-button {
-    grid-row: 4/5;
-    grid-column: 1/2;
+    margin-top: 50px;
   }
 
 }
