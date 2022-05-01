@@ -246,6 +246,8 @@ i {
   }
   #descriptionDiv {
     width: 75%;
+    transform: translate(50px, 100%);
+    font-size: 1.3em;
   }
   .leftNavTransformed {
     transform: translate(-101%, 0px);
@@ -256,6 +258,12 @@ i {
   }
   #formLayout {
     grid-template-columns: 1fr minmax(auto, 40em) 1fr;
+  }
+  #todayLayout {
+    grid-template-columns: 1fr;
+  }
+  #thisWeekLayout {
+    grid-template-columns: 1fr;
   }
   #buttonsDiv {
     width: 32%;

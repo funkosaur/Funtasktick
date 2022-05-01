@@ -76,9 +76,9 @@ const welcomePage = () => {
 
   setTimeout(() => {
     descriptionDiv.style.transform = "translate(0px, -15vh)";
-    if (window.screen.width < 800)
-      descriptionDiv.style.transform = "translate(50px, -7vh)";
+    if (window.screen.width < 1000)
+      descriptionDiv.style.transform = "translate(50px, -40%)";
   }, 2100);
 };
-
+//descriptionDiv small fix on different things thispage transform the leftdiv
 export default welcomePage;
