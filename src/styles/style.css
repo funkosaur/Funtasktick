@@ -282,14 +282,14 @@ i {
     padding-right: 0px;
   }
   body {
-    grid-template-rows: 22vh 1fr;
+    grid-template-rows: 23vh 1fr;
     grid-template-columns: 1.5fr 1fr;
   }
   #welcomeLayout {
-    height: 78vh;
+    height: 77vh;
   }
   #tasksLayout {
-    height: 78vh;
+    height: 77vh;
   }
   #formContent {
     padding: 8px 18px;
