@@ -1,17 +1,21 @@
 #tasksLayout {
   display: grid;
+  width: 100%;
   grid-template-columns: 0.4fr minmax(auto, 50em) 0.2fr minmax(auto, 20em) 0.4fr;
-  grid-template-rows: 200px 4fr 50px;
+  grid-template-rows: 200px 4fr;
   row-gap: 2em;
   font-weight: bold;
+  overflow: hidden;
+  position: relative;
 }
 
 #projectInfo {
   grid-row: 1/2;
   grid-column: 1/4;
-  margin-top: 2em;
-  margin-left: 2em;
+  margin-top: 1.5em;
+  margin-left: 1em;
   font-size: 1.8em;
+  word-break: break-word;
 }
 
 #tasksDiv {
@@ -19,8 +23,12 @@
   grid-column: 2/3;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
+#projectTitle {
+  color: var(--red);
+}
 
 
 #addTaskButton {
@@ -120,12 +128,8 @@
   font-family: Niveau;
 }
 
-.delete-button {
-  grid-row: 3/4;
-  grid-column: 4/5;
-  display: flex;
-  justify-content:center;
-  align-items: center;
+#deleteButton {
+  margin-top: 15px;
 }
 
 #notesArea{

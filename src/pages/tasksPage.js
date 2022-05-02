@@ -14,7 +14,7 @@ function tasksPage(project) {
   tasksLayout.setAttribute("data-index", `${projects.indexOf(project)}`);
   contentDiv.appendChild(tasksLayout);
 
-  const projectInfo = document.createElement("div");
+  const projectInfo = document.createElement("span");
   projectInfo.setAttribute("id", "projectInfo");
   tasksLayout.appendChild(projectInfo);
 
@@ -123,10 +123,6 @@ function tasksPage(project) {
     events.emit("projectCreated", projects);
   });
 
-  const deleteDiv = document.createElement("div");
-  deleteDiv.classList.add("delete-button");
-  tasksLayout.appendChild(deleteDiv);
-
   const deleteProjectButton = document.createElement("button");
   deleteProjectButton.setAttribute("id", "deleteButton");
   deleteProjectButton.setAttribute(
@@ -134,7 +130,7 @@ function tasksPage(project) {
     `${projects.indexOf(project)}`
   );
   deleteProjectButton.textContent = "Delete Project";
-  deleteDiv.appendChild(deleteProjectButton);
+  notesDiv.appendChild(deleteProjectButton);
 
   deleteProjectButton.addEventListener("click", (e) => {
 

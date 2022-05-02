@@ -26,6 +26,7 @@ const formPage = () => {
 
   const projectTitle = document.createElement("input");
   projectTitle.type = "text";
+  projectTitle.maxLength = 17;
   projectTitle.setAttribute("id", "formProjectTitle");
   formContent.appendChild(projectTitle);
 
@@ -37,6 +38,7 @@ const formPage = () => {
 
   const projectDescription = document.createElement("input");
   projectDescription.type = "text";
+  projectDescription.maxLength = 60;
   projectDescription.setAttribute("id", "formProjectDescription");
   formContent.appendChild(projectDescription);
 
