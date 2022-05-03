@@ -25,7 +25,10 @@
   --white: #fad9d1;
   --main-font: "Niveau";
   --search-width: 80%;
-  
+}
+
+html {
+  overflow-y: auto;
 }
 
 body {
@@ -54,6 +57,8 @@ body {
   grid-column: 1/2;
   background-color: var(--gray);
   transition: all 0.7s ease-in-out;
+  overflow-y: auto;
+  word-break: break-word;
 }
 
 #content {
@@ -153,7 +158,6 @@ i {
   -webkit-user-select: none;
   touch-action: manipulation;
   width: fit-content;
-  word-break: break-word;
   border: 0;
 }
 
@@ -230,7 +234,6 @@ i {
   background: var(--lightRed);
 }
 
-
 #projectsDiv {
   justify-content: space-between;
 }
@@ -241,10 +244,29 @@ i {
 }
 
 .leftNavTransform {
-  translate:(0px, 0px);
+  translate: (0px, 0px);
   z-index: 999;
 }
 
+@media only screen and (max-width: 1230px) {
+  #allTasks {
+    height: 120px;
+  }
+  #dateAndDelete{
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  #dateAndDelete div{
+    text-align: end;
+  }
+  #checkboxAndTextDiv label{
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  
+}
 
 @media only screen and (max-width: 1000px) {
   #content {
@@ -346,7 +368,11 @@ i {
     grid-column: 1/2;
     margin-top: 50px;
   }
-
+  body {
+    grid-template-columns: 5fr 1fr;
+  }
+  
+  
 }
 
 @media only screen and (max-width: 560px) {

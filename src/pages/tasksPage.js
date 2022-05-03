@@ -66,6 +66,7 @@ function tasksPage(project) {
 
   const newTaskInput = document.createElement("input");
   newTaskInput.setAttribute("id", "newTaskInput");
+  newTaskInput.maxLength = 43;
   inputContainer.appendChild(newTaskInput);
 
   const newTaskDate = document.createElement("input");
