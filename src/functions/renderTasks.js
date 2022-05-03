@@ -42,7 +42,7 @@ function renderTasks(project, linesFunction) {
     if(currentTasks.dueDate == ""){
       dueDateTask.textContent = "";
     }else {
-      let taskDueDate = format(parseISO(currentTasks.dueDate), `E dd MMMM`);
+      let taskDueDate = format(parseISO(currentTasks.dueDate), `E dd MMM`);
       dueDateTask.textContent = `${taskDueDate}`;
     }
     dateAndDelete.appendChild(dueDateTask);

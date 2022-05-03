@@ -3,8 +3,9 @@ import createTasks from "../functions/createTasks.js";
 import { projects } from "../index.js";
 import events from "../functions/utility/pubsub.js";
 import {createProjectElement} from "../functions/createProject.js";
-import formPage from "./formPage.js";
 import welcomePage from "./welcomePage.js";
+import format from 'date-fns/format';
+import parseISO from 'date-fns/parseISO';
 
 function tasksPage(project) {
   const contentDiv = document.querySelector("#content");
@@ -30,7 +31,8 @@ function tasksPage(project) {
 
   const projectDueDate = document.createElement("div");
   projectDueDate.setAttribute("id", "projectDueDate");
-  projectDueDate.textContent = `Due: ${project.dueDate}`;
+  let projectDueDateFormat = format(parseISO(project.dueDate), `dd MMMM yyyy`);
+  projectDueDate.textContent = `Due: ${projectDueDateFormat}`;
   projectInfo.appendChild(projectDueDate);
 
   const tasksDiv = document.createElement("div");
@@ -66,7 +68,7 @@ function tasksPage(project) {
 
   const newTaskInput = document.createElement("input");
   newTaskInput.setAttribute("id", "newTaskInput");
-  newTaskInput.maxLength = 43;
+  newTaskInput.maxLength = 60;
   inputContainer.appendChild(newTaskInput);
 
   const newTaskDate = document.createElement("input");

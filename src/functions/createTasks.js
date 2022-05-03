@@ -14,7 +14,7 @@ function createTasks() {
   const taskButtonsDiv = document.querySelector("#taskButtonsDiv");
   const addTaskButton = document.querySelector("#addTaskButton");
 
-  const newTask = taskFactory(newTaskInput.value, newTaskDate.value, false);
+  const newTask = taskFactory(newTaskInput.value.toLowerCase(), newTaskDate.value, false);
 
   this.tasks.push(newTask);
 
