@@ -3,6 +3,7 @@ import { projects } from "../index.js";
 import deleteItemsInDiv from "./utility/deleteItemsInDiv.js";
 import renderTasks from "./renderTasks.js";
 import { linesThrough } from "./tasksPageEventListeners.js";
+import mobileNavBarToggle from "./utility/hideMobileNavBar.js";
 
 function projectEventHandler(e) {
   const contentDiv = document.querySelector("#content");
@@ -17,10 +18,7 @@ function projectEventHandler(e) {
   tasksPage(project);
 
   renderTasks(project, linesThrough);
-  if (window.screen.width < 1000) {
-    leftNavigation.classList.toggle("leftNavTransform");
-    leftNavigation.classList.toggle("leftNavTransformed");
-  }
+  mobileNavBarToggle()
 }
 
 export default projectEventHandler;

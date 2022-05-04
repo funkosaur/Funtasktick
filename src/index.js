@@ -1,7 +1,5 @@
 import './styles/style.css';
-import formPage from "./pages/formPage.js";
-import {frontPageEventListeners, getData} from "./functions/frontPageEventListeners.js";
-import { takeFormInfo } from "./functions/takingFormInfo.js";
+import { getData } from "./functions/frontPageEventListeners.js";
 import { addProjectToNavlist } from "./functions/createProject.js";
 import welcomePage from "./pages/welcomePage.js";
 
@@ -14,7 +12,6 @@ let projects = [];
 })();
 
 welcomePage()
-frontPageEventListeners()
 addProjectToNavlist()
 getData()
 

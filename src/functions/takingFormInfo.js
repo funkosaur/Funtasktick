@@ -1,6 +1,7 @@
 import events from "./utility/pubsub.js";
 import checkFormRequirements from "./formRequirements.js";
 import { projects } from "../index.js";
+import mobileNavBarToggle from "./utility/hideMobileNavBar.js";
 
 const takeFormInfo = () => {
   const projectFactory = (
@@ -16,7 +17,9 @@ const takeFormInfo = () => {
 
   function processFormInfo(event) {
     const projectTitle = document.querySelector("#formProjectTitle");
-    const projectDescription = document.querySelector("#formProjectDescription");
+    const projectDescription = document.querySelector(
+      "#formProjectDescription"
+    );
     const projectDueDate = document.querySelector("#formProjectDueDate");
     const projectPriority = document.querySelector("#projectPriorityCheckbox1");
     const projectNotes = document.querySelector("#formProjectNotes");
@@ -36,6 +39,7 @@ const takeFormInfo = () => {
     projects.push(newProject);
     events.emit("projectCreated", projects);
     this.reset();
+    mobileNavBarToggle();
   }
 
   const form = document.querySelector("#formContent");
