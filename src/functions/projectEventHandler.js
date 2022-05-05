@@ -5,13 +5,13 @@ import renderTasks from "./renderTasks.js";
 import { linesThrough } from "./tasksPageEventListeners.js";
 import mobileNavBarToggle from "./utility/hideMobileNavBar.js";
 
-function projectEventHandler(e) {
+function projectDisplayEventHandler(event) {
   const contentDiv = document.querySelector("#content");
 
   deleteItemsInDiv(contentDiv);
 
-  if (!e.target.matches("li")) return;
-  const element = e.target;
+  if (!event.target.matches("li")) return;
+  const element = event.target;
   let dataIndex = element.dataset.index;
   let project = projects[dataIndex];
 
@@ -21,4 +21,4 @@ function projectEventHandler(e) {
   mobileNavBarToggle()
 }
 
-export default projectEventHandler;
+export default projectDisplayEventHandler;

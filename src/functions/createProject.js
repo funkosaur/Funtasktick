@@ -1,6 +1,6 @@
 import events from "./utility/pubsub.js";
 import { projects } from "../index.js";
-import projectEventHandler from "./projectEventHandler.js";
+import projectDisplayEventHandler from "./projectEventHandler.js";
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import deleteItemsInDiv from "./utility/deleteItemsInDiv.js";
@@ -25,7 +25,7 @@ const projectNav = document.querySelector("#projectNav");
 
 createProjectElement()
 
-projectNav.addEventListener("click", projectEventHandler);
+projectNav.addEventListener("click", projectDisplayEventHandler);
 
 events.on("projectCreated", createProjectElement);
 

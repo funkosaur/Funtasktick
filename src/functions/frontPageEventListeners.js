@@ -11,8 +11,6 @@ import { linesThrough, globalLinesThrough } from "./tasksPageEventListeners.js";
 import thisWeeksPage from "../pages/thisWeekPage.js";
 import mobileNavBarToggle from "./utility/hideMobileNavBar.js";
 
-/*  SELECTORS */
-
 const userCardTemplate = document.querySelector("[data-user-template]");
 const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.querySelector("[data-search]");
@@ -23,24 +21,18 @@ const thisWeekDiv = document.querySelector("#thisWeekDiv");
 const menuButton = document.querySelector("#leftMenu");
 const addNewProjectButton = document.querySelector("#addNewProject");
 
-/*  SELECTORS END */
-
-/*  ARRAYS */
-
 let tasksFromProjects = [];
 let allTasks = [];
 let todaysTasks = { tasks: [] };
 let thisWeeksTasks = { tasks: [] };
 
-/*  ARRAYS END */
-
-/*  HELPER FUNCTIONS */
-
 function getData() {
   updateTasksArray();
-  console.log(allTasks);
+
   allTasks = [];
+
   deleteItemsInDiv(userCardContainer);
+
   allTasks = tasksFromProjects.map((task) => {
     const card = userCardTemplate.content.cloneNode(true).children[0];
     card.textContent = task.task;
@@ -48,14 +40,16 @@ function getData() {
       searchInput.value = task.task.toUpperCase();
       searchIcon.click();
     });
+
     userCardContainer.append(card);
+
     return { taskText: task.task, element: card };
   });
-  console.log("runssss");
 }
 
 function updateTasksArray() {
   tasksFromProjects = [];
+
   fillTasks();
 }
 
@@ -69,9 +63,11 @@ function fillTasks() {
 
 function getTodaysTasks() {
   todaysTasks.tasks = [];
+
   projects.forEach((project) => {
     project.tasks.forEach((task) => {
       let today = new Date().toISOString().slice(0, 10);
+
       if (task.dueDate == today) todaysTasks.tasks.push(task);
     });
   });
@@ -93,10 +89,6 @@ function getThisWeeksTasks() {
     });
   });
 }
-
-/*  HELPER FUNCTIONS END */
-
-/*  EVENT LISTENERS */
 
 thisWeekDiv.addEventListener("click", renderThisWeeksTasks);
 
@@ -141,7 +133,9 @@ addNewProjectButton.addEventListener("click", () => {
 
 function renderTodaysTasks() {
   getTodaysTasks();
+
   todaysPage();
+  
   if (todaysTasks.tasks.length == 0) {
     const tasksList = document.querySelector("#tasksList");
     tasksList.textContent = "No tasks to be done today. :)";

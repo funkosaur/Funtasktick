@@ -8,14 +8,17 @@ function showTaskInputs() {
   taskButtonsDiv.style.display = "flex";
 }
 
-function linesThrough() {
+function linesThroughProjectTasks() {
   const projectLayout = document.querySelector("#tasksLayout");
   let dataIndex = projectLayout.dataset.index;
   let project = projects[dataIndex];
+
   project.tasks.forEach((task, index) => {
     const dueDateTask = document.querySelector(`#dueDateTask${index}`);
     const checkBox = document.querySelector(`#checkbox${index}`);
+
     task.done = checkBox.checked;
+ 
     if (task.done == true) {
       dueDateTask.style.textDecoration = "line-through";
       dueDateTask.style.color = "#b3b3b3";
@@ -24,10 +27,11 @@ function linesThrough() {
       dueDateTask.style.color = "black";
     }
   });
+  
   events.emit("projectCreated", projects);
 }
 
-function globalLinesThrough() {
+function linesThroughThisWeekAndTodayTasks() {
   this.tasks.forEach((task, index) => {
     const dueDateTask = document.querySelector(`#dueDateTask${index}`);
     const checkBox = document.querySelector(`#checkbox${index}`);
@@ -40,7 +44,8 @@ function globalLinesThrough() {
       dueDateTask.style.color = "black";
     }
   });
+
   events.emit("projectCreated", projects);
 }
 
-export { showTaskInputs, linesThrough, globalLinesThrough };
+export { showTaskInputs, linesThroughProjectTasks as linesThrough, linesThroughThisWeekAndTodayTasks as globalLinesThrough };
