@@ -18,7 +18,7 @@ function linesThroughProjectTasks() {
     const checkBox = document.querySelector(`#checkbox${index}`);
 
     task.done = checkBox.checked;
- 
+
     if (task.done == true) {
       dueDateTask.style.textDecoration = "line-through";
       dueDateTask.style.color = "#b3b3b3";
@@ -27,7 +27,7 @@ function linesThroughProjectTasks() {
       dueDateTask.style.color = "black";
     }
   });
-  
+
   events.emit("projectCreated", projects);
 }
 
@@ -48,4 +48,8 @@ function linesThroughThisWeekAndTodayTasks() {
   events.emit("projectCreated", projects);
 }
 
-export { showTaskInputs, linesThroughProjectTasks as linesThrough, linesThroughThisWeekAndTodayTasks as globalLinesThrough };
+export {
+  showTaskInputs,
+  linesThroughProjectTasks as linesThrough,
+  linesThroughThisWeekAndTodayTasks as globalLinesThrough,
+};

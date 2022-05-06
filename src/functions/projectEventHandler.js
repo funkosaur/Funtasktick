@@ -18,7 +18,7 @@ function projectDisplayEventHandler(event) {
   tasksPage(project);
 
   renderTasks(project, linesThrough);
-  mobileNavBarToggle()
+  mobileNavBarToggle();
 }
 
 export default projectDisplayEventHandler;
