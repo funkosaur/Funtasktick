@@ -1,4 +1,3 @@
-import {todaysTasks} from "../functions/frontPageEventListeners.js"
 import deleteItemsInDiv from "../functions/utility/deleteItemsInDiv";
 
 const contentDiv = document.querySelector("#content");
@@ -17,7 +16,7 @@ function todaysPage(todaysProject) {
     todayLayout.appendChild(todayTitleDiv);
 
     const tasksDiv = document.createElement("div");
-    tasksDiv.setAttribute("id", "tasksDiv");
+    tasksDiv.setAttribute("id", "todayTasksDiv");
     todayLayout.appendChild(tasksDiv);
 
     const tasksList = document.createElement("ul");

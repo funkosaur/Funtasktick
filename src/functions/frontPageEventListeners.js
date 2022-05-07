@@ -26,69 +26,6 @@ let allTasks = [];
 let todaysTasks = { tasks: [] };
 let thisWeeksTasks = { tasks: [] };
 
-function getData() {
-  updateTasksArray();
-
-  allTasks = [];
-
-  deleteItemsInDiv(userCardContainer);
-
-  allTasks = tasksFromProjects.map((task) => {
-    const card = userCardTemplate.content.cloneNode(true).children[0];
-    card.textContent = task.task;
-    card.addEventListener("click", () => {
-      searchInput.value = task.task.toUpperCase();
-      searchIcon.click();
-    });
-
-    userCardContainer.append(card);
-
-    return { taskText: task.task, element: card };
-  });
-}
-
-function updateTasksArray() {
-  tasksFromProjects = [];
-
-  fillTasks();
-}
-
-function fillTasks() {
-  projects.forEach((project) => {
-    project.tasks.forEach((task) => {
-      tasksFromProjects.push(task);
-    });
-  });
-}
-
-function getTodaysTasks() {
-  todaysTasks.tasks = [];
-
-  projects.forEach((project) => {
-    project.tasks.forEach((task) => {
-      let today = new Date().toISOString().slice(0, 10);
-
-      if (task.dueDate == today) todaysTasks.tasks.push(task);
-    });
-  });
-}
-
-function getThisWeeksTasks() {
-  thisWeeksTasks.tasks = [];
-  projects.forEach((project) => {
-    project.tasks.forEach((task) => {
-      let today = new Date();
-      let start = startOfWeek(today, { weekStartsOn: 2 })
-        .toISOString()
-        .slice(0, 10);
-      let end = endOfWeek(today, { weekStartsOn: 1 })
-        .toISOString()
-        .slice(0, 10);
-      if (task.dueDate > start && task.dueDate < end)
-        thisWeeksTasks.tasks.push(task);
-    });
-  });
-}
 
 thisWeekDiv.addEventListener("click", renderThisWeeksTasks);
 
@@ -175,4 +112,68 @@ function renderThisWeeksTasks() {
   mobileNavBarToggle();
 }
 
-export { todaysTasks, getData };
+function getData() {
+  updateTasksArray();
+
+  allTasks = [];
+
+  deleteItemsInDiv(userCardContainer);
+
+  allTasks = tasksFromProjects.map((task) => {
+    const card = userCardTemplate.content.cloneNode(true).children[0];
+    card.textContent = task.task;
+    card.addEventListener("click", () => {
+      searchInput.value = task.task.toUpperCase();
+      searchIcon.click();
+    });
+
+    userCardContainer.append(card);
+
+    return { taskText: task.task, element: card };
+  });
+}
+
+function updateTasksArray() {
+  tasksFromProjects = [];
+
+  fillTasks();
+}
+
+function fillTasks() {
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      tasksFromProjects.push(task);
+    });
+  });
+}
+
+function getTodaysTasks() {
+  todaysTasks.tasks = [];
+
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      let today = new Date().toISOString().slice(0, 10);
+
+      if (task.dueDate == today) todaysTasks.tasks.push(task);
+    });
+  });
+}
+
+function getThisWeeksTasks() {
+  thisWeeksTasks.tasks = [];
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      let today = new Date();
+      let start = startOfWeek(today, { weekStartsOn: 2 })
+        .toISOString()
+        .slice(0, 10);
+      let end = endOfWeek(today, { weekStartsOn: 1 })
+        .toISOString()
+        .slice(0, 10);
+      if (task.dueDate > start && task.dueDate < end)
+        thisWeeksTasks.tasks.push(task);
+    });
+  });
+}
+
+export { getData };

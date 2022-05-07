@@ -1,6 +1,6 @@
 #todayLayout {
   display: grid;
-  grid-template-columns: 0.35fr minmax(auto, 40em) 0.5fr;
+  grid-template-columns: 0.35fr minmax(auto, 55em) 0.65fr;
   grid-template-rows: 200px 4fr;
   row-gap: 2em;
   font-weight: bold;
@@ -12,4 +12,9 @@
     margin-top: 2em;
     margin-left: 2em;
     font-size: 1.8em;
+}
+
+#todayTasksDiv {
+  grid-column: 2/3;
+  grid-row: 2/3;
 }

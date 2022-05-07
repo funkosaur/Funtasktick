@@ -295,6 +295,9 @@ i {
   #todayLayout {
     grid-template-columns: 1fr;
   }
+  #todayTasksDiv {
+    grid-column: 1/2;
+  }
   #thisWeekLayout {
     grid-template-columns: 1fr;
   }
