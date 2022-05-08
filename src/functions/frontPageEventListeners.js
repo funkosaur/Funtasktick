@@ -31,43 +31,6 @@ thisWeekDiv.addEventListener("click", renderThisWeeksTasks);
 
 todayDiv.addEventListener("click", renderTodaysTasks);
 
-searchInput.addEventListener("input", (e) => {
-  userCardContainer.style.display = "block";
-  const searchTerm = e.target.value.toLowerCase();
-  console.log(searchTerm);
-  allTasks.forEach((task) => {
-    const isVisible = task.taskText.includes(searchTerm);
-    task.element.classList.toggle("hidden", !isVisible);
-  });
-  if (searchTerm.length < 1) userCardContainer.style.display = "none";
-});
-
-events.on("projectCreated", updateTasksArray);
-events.on("projectCreated", getData);
-
-searchIcon.addEventListener("click", (e) => {
-  const searchValue = searchInput.value.toLowerCase();
-  projects.forEach((project) => {
-    project.tasks.forEach((task) => {
-      if (task.task == searchValue) {
-        deleteItemsInDiv(contentDiv);
-        tasksPage(project);
-        renderTasks(project, linesThrough);
-        searchInput.value = "";
-        userCardContainer.style.display = "none";
-      }
-    });
-  });
-});
-
-menuButton.addEventListener("click", mobileNavBarToggle);
-
-addNewProjectButton.addEventListener("click", () => {
-  deleteItemsInDiv(contentDiv);
-  formPage();
-  takeFormInfo();
-});
-
 function renderTodaysTasks() {
   getTodaysTasks();
 
@@ -90,6 +53,45 @@ function renderTodaysTasks() {
   }
   mobileNavBarToggle();
 }
+
+searchInput.addEventListener("input", (e) => {
+  userCardContainer.style.display = "block";
+  const searchTerm = e.target.value.toLowerCase();
+  allTasks.forEach((task) => {
+    const isVisible = task.taskText.includes(searchTerm);
+    task.element.classList.toggle("hidden", !isVisible);
+  });
+  if (searchTerm.length < 1) userCardContainer.style.display = "none";
+});
+
+events.on("projectCreated", updateTasksArray);
+events.on("projectCreated", getData);
+
+searchIcon.addEventListener("click", searchInputValueForTasks);
+
+function searchInputValueForTasks() {
+  const searchValue = searchInput.value.toLowerCase();
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      if (task.task == searchValue) {
+        deleteItemsInDiv(contentDiv);
+        tasksPage(project);
+        renderTasks(project, linesThrough);
+        searchInput.value = "";
+        userCardContainer.style.display = "none";
+      }
+    });
+  });
+}
+
+menuButton.addEventListener("click", mobileNavBarToggle);
+
+addNewProjectButton.addEventListener("click", () => {
+  deleteItemsInDiv(contentDiv);
+  formPage();
+  takeFormInfo();
+});
+
 
 function renderThisWeeksTasks() {
   getThisWeeksTasks();
