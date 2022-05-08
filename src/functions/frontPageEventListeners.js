@@ -29,6 +29,45 @@ let thisWeeksTasks = { tasks: [] };
 
 thisWeekDiv.addEventListener("click", renderThisWeeksTasks);
 
+function renderThisWeeksTasks() {
+  getThisWeeksTasks();
+  thisWeeksPage();
+  if (thisWeeksTasks.tasks.length == 0) {
+    const tasksList = document.querySelector("#tasksList");
+    tasksList.textContent = "No tasks to be done this week. :)";
+    tasksList.style.fontSize = "1.8em";
+    tasksList.style.display = "flex";
+    tasksList.style.justifyContent = "center";
+  } else {
+    renderTasks(thisWeeksTasks, globalLinesThrough.bind(thisWeeksTasks));
+    const deleteBtn = document.querySelectorAll("#deleteButton");
+    deleteBtn.forEach((btn) => {
+      btn.style.display = "none";
+    });
+    const dateAndDelete = document.querySelectorAll("#dateAndDelete");
+    dateAndDelete.forEach((box) => (box.style.justifyContent = "flex-end"));
+  }
+  mobileNavBarToggle();
+}
+
+function getThisWeeksTasks() {
+  thisWeeksTasks.tasks = [];
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      let today = new Date();
+      let start = startOfWeek(today, { weekStartsOn: 2 })
+        .toISOString()
+        .slice(0, 10);
+      let end = endOfWeek(today, { weekStartsOn: 1 })
+        .toISOString()
+        .slice(0, 10);
+      if (task.dueDate > start && task.dueDate < end)
+        thisWeeksTasks.tasks.push(task);
+    });
+  });
+}
+
+
 todayDiv.addEventListener("click", renderTodaysTasks);
 
 function renderTodaysTasks() {
@@ -54,6 +93,18 @@ function renderTodaysTasks() {
   mobileNavBarToggle();
 }
 
+function getTodaysTasks() {
+  todaysTasks.tasks = [];
+
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      let today = new Date().toISOString().slice(0, 10);
+
+      if (task.dueDate == today) todaysTasks.tasks.push(task);
+    });
+  });
+}
+
 searchInput.addEventListener("input", (e) => {
   userCardContainer.style.display = "block";
   const searchTerm = e.target.value.toLowerCase();
@@ -63,9 +114,6 @@ searchInput.addEventListener("input", (e) => {
   });
   if (searchTerm.length < 1) userCardContainer.style.display = "none";
 });
-
-events.on("projectCreated", updateTasksArray);
-events.on("projectCreated", getData);
 
 searchIcon.addEventListener("click", searchInputValueForTasks);
 
@@ -92,27 +140,7 @@ addNewProjectButton.addEventListener("click", () => {
   takeFormInfo();
 });
 
-
-function renderThisWeeksTasks() {
-  getThisWeeksTasks();
-  thisWeeksPage();
-  if (thisWeeksTasks.tasks.length == 0) {
-    const tasksList = document.querySelector("#tasksList");
-    tasksList.textContent = "No tasks to be done this week. :)";
-    tasksList.style.fontSize = "1.8em";
-    tasksList.style.display = "flex";
-    tasksList.style.justifyContent = "center";
-  } else {
-    renderTasks(thisWeeksTasks, globalLinesThrough.bind(thisWeeksTasks));
-    const deleteBtn = document.querySelectorAll("#deleteButton");
-    deleteBtn.forEach((btn) => {
-      btn.style.display = "none";
-    });
-    const dateAndDelete = document.querySelectorAll("#dateAndDelete");
-    dateAndDelete.forEach((box) => (box.style.justifyContent = "flex-end"));
-  }
-  mobileNavBarToggle();
-}
+events.on("projectCreated", getData);
 
 function getData() {
   updateTasksArray();
@@ -135,6 +163,8 @@ function getData() {
   });
 }
 
+events.on("projectCreated", updateTasksArray);
+
 function updateTasksArray() {
   tasksFromProjects = [];
 
@@ -149,33 +179,5 @@ function fillTasks() {
   });
 }
 
-function getTodaysTasks() {
-  todaysTasks.tasks = [];
-
-  projects.forEach((project) => {
-    project.tasks.forEach((task) => {
-      let today = new Date().toISOString().slice(0, 10);
-
-      if (task.dueDate == today) todaysTasks.tasks.push(task);
-    });
-  });
-}
-
-function getThisWeeksTasks() {
-  thisWeeksTasks.tasks = [];
-  projects.forEach((project) => {
-    project.tasks.forEach((task) => {
-      let today = new Date();
-      let start = startOfWeek(today, { weekStartsOn: 2 })
-        .toISOString()
-        .slice(0, 10);
-      let end = endOfWeek(today, { weekStartsOn: 1 })
-        .toISOString()
-        .slice(0, 10);
-      if (task.dueDate > start && task.dueDate < end)
-        thisWeeksTasks.tasks.push(task);
-    });
-  });
-}
 
 export { getData };
