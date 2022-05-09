@@ -23,6 +23,13 @@ function createProjectElement() {
     projectsTabs.setAttribute("data-index", `${index}`);
     projectsTabs.textContent = `${project.title}`;
     projectNav.appendChild(projectsTabs);
+    if (project.priority == true) {
+      const priorityFlag = document.createElement("i");
+      priorityFlag.classList.add("fas");
+      priorityFlag.classList.add("fa-flag");
+      projectsTabs.appendChild(priorityFlag);
+      projectsTabs.classList.add("priorityProject")
+    }
   });
 }
 

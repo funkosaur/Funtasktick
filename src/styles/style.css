@@ -234,6 +234,10 @@ i {
   background: var(--lightRed);
 }
 
+.priorityProject {
+  background-color: var(--red)
+}
+
 #projectsDiv {
   justify-content: space-between;
 }
