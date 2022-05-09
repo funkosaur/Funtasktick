@@ -44,8 +44,16 @@
   display: none;
 }
 
+#noteSaveButton:hover {
+  background-color: var(--lightRed);
+}
+
+#deleteButton:hover {
+  background-color: var(--lightRed);
+}
+
 .taskButtons {
-  background: var(--lightReddish);
+  background: var(--black);
   border-radius: 2px;
   color: white;
   cursor: pointer;
@@ -140,7 +148,7 @@
 }
 
 #noteSaveButton {
-  background: var(--lightReddish);
+  background: var(--black);
   border-radius: 2px;
   color: white;
   cursor: pointer;
@@ -172,7 +180,7 @@
 
 
 #deleteButton {
-  background: var(--lightReddish);
+  background: var(--black);
   border-radius: 2px;
   color: white;
   cursor: pointer;
