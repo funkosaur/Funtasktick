@@ -8,6 +8,7 @@ const taskFactory = (task, dueDate, done) => {
   return { task, dueDate, done };
 };
 
+// Creates and renders tasks in the specific 'this' project 
 function createTasks() {
   const newTaskInput = document.querySelector("#newTaskInput");
   const newTaskDate = document.querySelector("#newTaskDate");

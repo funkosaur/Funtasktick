@@ -26,9 +26,9 @@ let allTasks = [];
 let todaysTasks = { tasks: [] };
 let thisWeeksTasks = { tasks: [] };
 
-
 thisWeekDiv.addEventListener("click", renderThisWeeksTasks);
 
+// Renders all tasks from the thisWeeksTasks array
 function renderThisWeeksTasks() {
   getThisWeeksTasks();
   thisWeeksPage();
@@ -50,6 +50,7 @@ function renderThisWeeksTasks() {
   mobileNavBarToggle();
 }
 
+// Pushes all tasks dated in this week into the WeeksTasks array
 function getThisWeeksTasks() {
   thisWeeksTasks.tasks = [];
   projects.forEach((project) => {
@@ -67,14 +68,14 @@ function getThisWeeksTasks() {
   });
 }
 
-
 todayDiv.addEventListener("click", renderTodaysTasks);
 
+// Renders all tasks from the todaysTasks array
 function renderTodaysTasks() {
   getTodaysTasks();
 
   todaysPage();
-  
+
   if (todaysTasks.tasks.length == 0) {
     const tasksList = document.querySelector("#tasksList");
     tasksList.textContent = "No tasks to be done today. :)";
@@ -93,6 +94,7 @@ function renderTodaysTasks() {
   mobileNavBarToggle();
 }
 
+// Pushes all tasks dated today into the todayTasks array
 function getTodaysTasks() {
   todaysTasks.tasks = [];
 
@@ -105,9 +107,10 @@ function getTodaysTasks() {
   });
 }
 
-searchInput.addEventListener("input", (e) => {
+// Display searched term tasks
+searchInput.addEventListener("input", (event) => {
   userCardContainer.style.display = "block";
-  const searchTerm = e.target.value.toLowerCase();
+  const searchTerm = event.target.value.toLowerCase();
   allTasks.forEach((task) => {
     const isVisible = task.taskText.includes(searchTerm);
     task.element.classList.toggle("hidden", !isVisible);
@@ -115,6 +118,7 @@ searchInput.addEventListener("input", (e) => {
   if (searchTerm.length < 1) userCardContainer.style.display = "none";
 });
 
+// Renders searched term origin project
 searchIcon.addEventListener("click", searchInputValueForTasks);
 
 function searchInputValueForTasks() {
@@ -132,17 +136,21 @@ function searchInputValueForTasks() {
   });
 }
 
+// Hides or reveals the mobile project navBar
 menuButton.addEventListener("click", mobileNavBarToggle);
 
+// Renders the form page
 addNewProjectButton.addEventListener("click", () => {
   deleteItemsInDiv(contentDiv);
   formPage();
   takeFormInfo();
 });
 
-events.on("projectCreated", getData);
+// Updates all subscirbers to any projects changes
+events.on("projectCreated", getTasksDataForSearching);
 
-function getData() {
+// Generates tasks based on search term
+function getTasksDataForSearching() {
   updateTasksArray();
 
   allTasks = [];
@@ -163,6 +171,7 @@ function getData() {
   });
 }
 
+// Updates all subscirbers to any projects changes
 events.on("projectCreated", updateTasksArray);
 
 function updateTasksArray() {
@@ -179,5 +188,4 @@ function fillTasks() {
   });
 }
 
-
-export { getData };
+export { getTasksDataForSearching };

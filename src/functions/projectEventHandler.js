@@ -5,6 +5,7 @@ import renderTasks from "./renderTasks.js";
 import { linesThrough } from "./tasksPageEventListeners.js";
 import mobileNavBarToggle from "./utility/hideMobileNavBar.js";
 
+// Event Listener function for all projects listed in the project navBar
 function projectDisplayEventHandler(event) {
   const contentDiv = document.querySelector("#content");
 

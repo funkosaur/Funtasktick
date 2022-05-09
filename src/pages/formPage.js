@@ -1,5 +1,6 @@
 import deleteItemsInDiv from "../functions/utility/deleteItemsInDiv";
 
+// Renders the form page
 const formPage = () => {
   const contentDiv = document.querySelector("#content");
 

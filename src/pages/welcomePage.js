@@ -2,7 +2,8 @@ import deleteItemsInDiv from "../functions/utility/deleteItemsInDiv";
 import formPage from "./formPage.js";
 import { takeFormInfo } from "../functions/takingFormInfo.js";
 
-const welcomePage = () => {
+// Renders Welcome Page
+function welcomePage() {
   const contentDiv = document.querySelector("#content");
 
   deleteItemsInDiv(contentDiv);
@@ -79,6 +80,6 @@ const welcomePage = () => {
     if (window.screen.width < 1000)
       descriptionDiv.style.transform = "translate(50px, -40%)";
   }, 2100);
-};
-//descriptionDiv small fix on different things thispage transform the leftdiv
+}
+
 export default welcomePage;

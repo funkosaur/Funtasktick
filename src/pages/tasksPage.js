@@ -7,6 +7,7 @@ import welcomePage from "./welcomePage.js";
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 
+// Renders the tasks page of the specified project
 function tasksPage(project) {
   const contentDiv = document.querySelector("#content");
 

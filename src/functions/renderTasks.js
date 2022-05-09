@@ -5,6 +5,8 @@ import { linesThrough } from "./tasksPageEventListeners.js";
 import events from "./utility/pubsub.js";
 import { projects } from "../index.js";
 
+// Renders all tasks from a given project and a linesThrough function for
+// rendering the tasks as done or not done
 function renderTasks(project, linesFunction) {
   project.tasks.forEach((currentTasks, index) => {
     const allTasks = document.createElement("li");
