@@ -25,6 +25,7 @@
 - [x] This week tasks tab to display tasks dated the current week
 - [x] Extensive use of date-fns to format date content
 - [x] Webpack and npm to bundle the JS files into main.js
+- [x] Fully Responsive
 
 
 ### Screenshot
