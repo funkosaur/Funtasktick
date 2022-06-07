@@ -38,6 +38,7 @@ body {
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 10% 1fr;
   font-family: Niveau;
+  overflow-x: hidden;
 }
 
 #myHeader {
@@ -294,7 +295,10 @@ i {
     grid-template-columns: 1fr;
   }
   #formLayout {
-    grid-template-columns: 1fr minmax(auto, 40em) 1fr;
+    grid-template-columns: 1fr;
+  }
+  #formContent{
+    grid-column: 1/3;
   }
   #todayLayout {
     grid-template-columns: 1fr;
