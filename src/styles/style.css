@@ -140,6 +140,7 @@ i {
   width: 20%;
   display: flex;
   justify-content: space-around;
+  min-height: 100%;
 }
 
 #leftMenu {
@@ -236,7 +237,7 @@ i {
 }
 
 .priorityProject {
-  background-color: var(--red)
+  background-color: var(--red);
 }
 
 #projectsDiv {
@@ -257,20 +258,19 @@ i {
   #allTasks {
     height: 120px;
   }
-  #dateAndDelete{
+  #dateAndDelete {
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
   }
-  #dateAndDelete div{
+  #dateAndDelete div {
     text-align: end;
   }
-  #checkboxAndTextDiv label{
+  #checkboxAndTextDiv label {
     padding-right: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
   }
-  
 }
 
 @media only screen and (max-width: 1000px) {
@@ -337,7 +337,7 @@ i {
   }
   #formLayout {
     row-gap: 2.5em;
-    height: 77vh;
+    width: 100%;
   }
   #descriptionDiv {
     height: 30vh;
@@ -383,8 +383,6 @@ i {
   #checkboxAndTextDiv {
     width: 240%;
   }
-  
-  
 }
 
 @media only screen and (max-width: 560px) {
