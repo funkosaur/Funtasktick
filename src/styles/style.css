@@ -38,7 +38,6 @@ body {
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 10% 1fr;
   font-family: Niveau;
-  overflow-x: hidden;
 }
 
 #myHeader {
@@ -323,7 +322,7 @@ i {
     padding-right: 0px;
   }
   body {
-    grid-template-rows: 23vh 1fr;
+    grid-template-rows: 200px 1fr;
     grid-template-columns: 1.5fr 1fr;
   }
   #welcomeLayout {
