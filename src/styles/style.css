@@ -140,7 +140,7 @@ i {
   width: 20%;
   display: flex;
   justify-content: space-around;
-  min-height: 100%;
+  min-height: 20%;
 }
 
 #leftMenu {
@@ -337,7 +337,7 @@ i {
   }
   #formLayout {
     row-gap: 2.5em;
-    width: 100%;
+    min-width: 100%;
   }
   #descriptionDiv {
     height: 30vh;
@@ -382,6 +382,9 @@ i {
   }
   #checkboxAndTextDiv {
     width: 240%;
+  }
+  #content {
+    width: 100%;
   }
 }
 
