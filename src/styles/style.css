@@ -73,6 +73,7 @@ body {
   font-family: Niveau;
   font-size: 29px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #searchDiv {
@@ -336,6 +337,7 @@ i {
   }
   #formLayout {
     row-gap: 2.5em;
+    height: 77vh;
   }
   #descriptionDiv {
     height: 30vh;

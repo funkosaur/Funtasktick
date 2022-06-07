@@ -10,6 +10,7 @@ import todaysPage from "../pages/todayPage.js";
 import { linesThrough, globalLinesThrough } from "./tasksPageEventListeners.js";
 import thisWeeksPage from "../pages/thisWeekPage.js";
 import mobileNavBarToggle from "./utility/hideMobileNavBar.js";
+import welcomePage from "../pages/welcomePage.js";
 
 const userCardTemplate = document.querySelector("[data-user-template]");
 const userCardContainer = document.querySelector("[data-user-cards-container]");
@@ -20,6 +21,7 @@ const todayDiv = document.querySelector("#todayDiv");
 const thisWeekDiv = document.querySelector("#thisWeekDiv");
 const menuButton = document.querySelector("#leftMenu");
 const addNewProjectButton = document.querySelector("#addNewProject");
+const logoDiv = document.querySelector("#logoDiv");
 
 let tasksFromProjects = [];
 let allTasks = [];
@@ -138,6 +140,17 @@ function searchInputValueForTasks() {
 
 // Hides or reveals the mobile project navBar
 menuButton.addEventListener("click", mobileNavBarToggle);
+
+contentDiv.addEventListener("click", () => {
+  if (window.screen.width < 1000) {
+    if (leftNavigation.classList == "leftNavTransform") {
+      leftNavigation.classList.remove("leftNavTransform");
+      leftNavigation.classList.add("leftNavTransformed");
+    }
+  }
+});
+
+logoDiv.addEventListener("click", welcomePage)
 
 // Renders the form page
 addNewProjectButton.addEventListener("click", () => {
